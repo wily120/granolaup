@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Basic -->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Site Metas -->
+    <title>Cositas Ricas - Mini Granola Cups & Postres Artesanales</title>
+
+    <meta name="keywords"
+        content="cositas ricas, granola cups, postres artesanales, snacks saludables, repostería casera, tienda virtual, dulces, antojitos, mini granola cups">
+
+    <meta name="description"
+        content="Cositas Ricas - Mini granola cups y postres artesanales hechos con amor. Deliciosos, frescos y perfectos para consentirte. ¡Haz tu pedido por WhatsApp!">
+
+    <meta name="author" content="Cositas Ricas">
+
+    <!-- Site Icons -->
+    <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+
+    <!-- Site CSS -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Responsive CSS -->
+    <link rel="stylesheet" href="css/responsive.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/custom.css">
+
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+
+
+<body>
+    <!-- Inicio Barra Superior -->
+    <div class="main-top">
+        <div class="container-fluid">
+            <div class="row">
+
+                <!-- Columna Izquierda -->
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+
+                    <!-- Teléfono -->
+                    <div class="right-phone-box">
+                        <p>Contáctanos: <a href="https://wa.me/51900800100" target="_blank">+51 900 800 100</a></p>
+                    </div>
+
+                    <!-- Enlaces -->
+                    <div class="our-link">
+                        <ul>
+                            <li><a href="#"><i class="fas fa-location-arrow"></i> Recojo en tienda</a></li>
+                            <li><a href="#contact"><i class="fas fa-headset"></i> Soporte / Pedidos</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Columna Derecha -->
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+
+                    <!-- Eliminé Login. Ahora es selector útil -->
+                    <div class="login-box">
+                        <select id="basic" class="selectpicker show-tick form-control" data-placeholder="Opciones">
+                            <option>Ver Catálogo</option>
+                            <option>Hacer Pedido</option>
+                        </select>
+                    </div>
+
+                    <!-- Promociones Adaptadas -->
+                    <div class="text-slid-box">
+                        <div id="offer-box" class="carouselTicker">
+                            <ul class="offer-box">
+
+                                <li>
+                                    <i class="fab fa-opencart"></i> ✨ 10% de descuento en Mini Granola Cups (pedido web)
+                                </li>
+
+                                <li>
+                                    <i class="fab fa-opencart"></i> 🍓 Sabor Frutos Rojos a precio especial hoy
+                                </li>
+
+                                <li>
+                                    <i class="fab fa-opencart"></i> 🎁 Agrega topping extra GRATIS
+                                </li>
+
+                                <li>
+                                    <i class="fab fa-opencart"></i> 🚚 Envío gratis por compras mayores a S/ 25
+                                </li>
+
+                                <li>
+                                    <i class="fab fa-opencart"></i> 🐷 Edición limitada: Mini Cup Mixta
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- Fin Barra Superior -->
+
+
+    <!-- Inicio Encabezado Principal -->
+    <header class="main-header">
+        <!-- Inicio Navegación -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light navbar-default bootsnav">
+            <div class="container">
+
+                <!-- Logo y Botón Responsive -->
+                <div class="navbar-header">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu"
+                        aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+                        <i class="fa fa-bars"></i>
+                    </button>
+
+                    <!-- Logo -->
+                    <a class="navbar-brand" href="index.html">
+                        <img src="images/logo.png" class="logo img-fluid" alt="Cositas Ricas"
+                            style="max-width: 110px; height: auto;">
+                    </a>
+                </div>
+
+                <!-- Menú -->
+                <div class="collapse navbar-collapse" id="navbar-menu">
+                    <ul class="nav navbar-nav ml-auto" data-in="fadeInDown" data-out="fadeOutUp">
+                        <li class="nav-item active"><a class="nav-link" href="index.html">Inicio</a></li>
+                        <li class="nav-item"><a class="nav-link" href="about.html">Sobre Nosotros</a></li>
+
+                        <li class="dropdown">
+                            <a href="#" class="nav-link dropdown-toggle arrow" data-toggle="dropdown">Tienda</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="shop.html">Catálogo</a></li>
+                                <li><a href="shop-detail.html">Detalle del Producto</a></li>
+                                <li><a href="#contact">Hacer Pedido</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item"><a class="nav-link" href="gallery.html">Galería</a></li>
+                        <li class="nav-item"><a class="nav-link" href="contact-us.html">Contáctanos</a></li>
+                    </ul>
+                </div>
+
+                <!-- Iconos / WhatsApp en vez de carrito -->
+                <div class="attr-nav">
+                    <ul>
+                        <li class="search">
+                            <a href="#"><i class="fa fa-search"></i></a>
+                        </li>
+                        <li class="side-menu">
+                            <a href="https://wa.me/51900800100" target="_blank">
+                                <i class="fa fa-whatsapp"></i>
+                                <p>Pedir por WhatsApp</p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </nav>
+        <!-- Fin Navegación -->
+    </header>
+    <!-- Fin Encabezado Principal -->
+
+
+
+
+    <!-- Inicio Buscador Superior -->
+    <div class="top-search">
+        <div class="container">
+            <div class="input-group">
+                <span class="input-group-addon">
+                    <i class="fa fa-search"></i>
+                </span>
+
+                <input type="text" class="form-control" placeholder="Buscar mini granola cups, postres o snacks...">
+
+                <span class="input-group-addon close-search">
+                    <i class="fa fa-times"></i>
+                </span>
+            </div>
+        </div>
+    </div>
+    <!-- Fin Buscador Superior -->
+
+
+
+    <!-- Inicio Slider Principal -->
+    <div id="slides-shop" class="cover-slides">
+        <ul class="slides-container">
+
+            <!-- Slide 1 -->
+            <li class="text-center">
+                <img src="images/imagen3.webp" alt="Mini Granola Cups Banner">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h1 class="m-b-20">
+                                <strong>Bienvenido a<br> Cositas Ricas</strong>
+                            </h1>
+                            <p class="m-b-40">
+                                Mini granola cups y postres artesanales hechos con amor.<br>
+                                ¡Deliciosos, frescos y listos para consentirte!
+                            </p>
+                            <p><a class="btn hvr-hover" href="shop.html">Ver Productos</a></p>
+                        </div>
+                    </div>
+                </div>
+            </li>
+
+            <!-- Slide 2 -->
+            <li class="text-center">
+                <img src="images/imagen2.jpg" alt="Postres Artesanales">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h1 class="m-b-20">
+                                <strong>Postres Frescos<br> y Deliciosos</strong>
+                            </h1>
+                            <p class="m-b-40">
+                                Cada porción preparada con ingredientes naturales y mucho cariño.<br>
+                                Prueba nuestros sabores únicos y ediciones limitadas.
+                            </p>
+                            <p><a class="btn hvr-hover" href="shop.html">Ver Catálogo</a></p>
+                        </div>
+                    </div>
+                </div>
+            </li>
+
+            <!-- Slide 3 -->
+            <li class="text-center">
+                <img src="images/imagen1" alt="Promociones Cositas Ricas">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h1 class="m-b-20">
+                                <strong>Promociones<br> Todos los Días</strong>
+                            </h1>
+                            <p class="m-b-40">
+                                Aprovecha descuentos, combos y pedidos especiales por WhatsApp.<br>
+                                ¡No te quedes sin tus mini granola cups favoritas!
+                            </p>
+                            <p><a class="btn hvr-hover" href="https://wa.me/51900800100" target="_blank">Pedir Ahora</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </li>
+
+        </ul>
+
+        <!-- Botones del Slider -->
+        <div class="slides-navigation">
+            <a href="#" class="next"><i class="fa fa-angle-right" aria-hidden="true"></i></a>
+            <a href="#" class="prev"><i class="fa fa-angle-left" aria-hidden="true"></i></a>
+        </div>
+
+    </div>
+    <!-- Fin Slider Principal -->
+
+
+
+    <style>
+        .shop-cat-box {
+            position: relative;
+            width: 100%;
+            height: 260px;
+            /* Altura uniforme */
+            overflow: hidden;
+            border-radius: 20px;
+            background: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .shop-cat-box:hover {
+            transform: scale(1.05);
+        }
+
+        .shop-cat-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            /* Rellena el contenedor sin deformarse */
+            border-radius: 20px;
+        }
+
+        .shop-cat-box a {
+            position: absolute;
+            bottom: 10px;
+            background: #F5C1C8;
+            /* Color más pastel/cute */
+            color: #242323;
+            border-radius: 10px;
+            padding: 8px 15px;
+            font-weight: bold;
+            text-decoration: none;
+            transition: background 0.3s ease;
+        }
+
+        .shop-cat-box a:hover {
+            background: #E88BAF;
+            color: #fff;
+        }
+    </style>
+
+    <!-- Inicio Categorías -->
+    <div class="categories-shop">
+        <div class="container">
+            <div class="row g-4">
+
+                <!-- Categoría 1 -->
+                <div class="col-lg-4 col-md-4 col-sm-12">
+                    <div class="shop-cat-box">
+                        <img src="images/clasico.jpg" alt="Mini Granola Cups Clásicas">
+                        <a class="btn hvr-hover" href="#">Mini Granola Cups Clásicas</a>
+                    </div>
+                </div>
+
+                <!-- Categoría 2 -->
+                <div class="col-lg-4 col-md-4 col-sm-12">
+                    <div class="shop-cat-box">
+                        <img src="images/categoria2.jpeg" alt="Mini Granola Cups Especiales">
+                        <a class="btn hvr-hover" href="#">Mini Granola Cups Especiales</a>
+                    </div>
+                </div>
+
+                <!-- Categoría 3 -->
+                <div class="col-lg-4 col-md-4 col-sm-12">
+                    <div class="shop-cat-box">
+                        <img src="images/categoria3.jpeg" alt="Snacks y Postres">
+                        <a class="btn hvr-hover" href="#">Snacks y Postres</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- Fin Categorías -->
+
+
+
+    <div class="box-add-products py-4">
+        <div class="container">
+            <div class="row g-3">
+
+                <!-- Imagen 1 -->
+                <div class="col-lg-6 col-md-6 col-sm-12">
+                    <div class="offer-box-products">
+                        <img src="images/banner1.jpg" class="img-fluid product-banner" alt="Banner 1">
+                    </div>
+                </div>
+
+                <!-- Imagen 2 -->
+                <div class="col-lg-6 col-md-6 col-sm-12">
+                    <div class="offer-box-products">
+                        <img src="images/banner2.jpg" class="img-fluid product-banner" alt="Banner 2">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .product-banner {
+            width: 100%;
+            height: 320px;
+            /* Ajusta si deseas otra altura */
+            object-fit: cover;
+            /* NO distorsiona la imagen */
+            border-radius: 20px;
+            /* Redondeo visible */
+            display: block;
+        }
+    </style>
+
+    <!-- Start Products  -->
+
+    <style>
+        /* Contenedor del producto */
+        .product-card {
+            background: #fff;
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .product-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Imagen */
+        .product-img {
+            width: 100%;
+            height: 240px;
+            object-fit: cover;
+            border-bottom: 1px solid #eee;
+        }
+
+        /* Etiquetas “Promo”, “Nuevo”, etc. */
+        .tag-label {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            background: #ff6b81;
+            color: #fff;
+            padding: 5px 12px;
+            font-size: 12px;
+            border-radius: 10px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .tag-label.new {
+            background: #28a745;
+        }
+
+        .tag-label.top {
+            background: #ffc107;
+            color: #000;
+        }
+
+        /* Contenido */
+        .product-body {
+            padding: 15px;
+            text-align: center;
+        }
+
+        .product-body h4 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .product-body h5 {
+            font-size: 20px;
+            font-weight: bold;
+            color: #e52b2b;
+        }
+
+        /* Botón agregar al carrito */
+        .btn-cart {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background: #ff6b81;
+            color: #fff;
+            border-radius: 10px;
+            margin-top: 10px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .btn-cart:hover {
+            background: #c62828;
+            color: #fff;
+        }
+
+        /* Acciones de hover */
+        .product-actions {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .product-actions a {
+            width: 35px;
+            height: 35px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #333;
+            transition: 0.2s;
+        }
+
+        .product-actions a:hover {
+            background: #ff6b81;
+            color: #fff;
+        }
+    </style>
+
+  <div class="products-box">
+    <div class="container">
+
+        <!-- Título -->
+        <div class="row">
+            <div class="col-12 text-center mb-4">
+                <h1 style="font-weight:700;">Mini Granola Cups & Snacks</h1>
+                <p>Disfruta nuestras deliciosas mini granola cups, saludables y llenas de sabor 🍯🥣</p>
+            </div>
+        </div>
+
+        <!-- Filtros -->
+        <div class="row mb-4">
+            <div class="col-12 text-center">
+                <div class="button-group filter-button-group">
+                    <button class="active" data-filter="*">Todos</button>
+                    <button data-filter=".top-featured">Nuevos</button>
+                    <button data-filter=".best-seller">Más Vendidos</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Productos -->
+        <div class="row special-list g-4">
+
+            <!-- Producto 1 -->
+            <div class="col-lg-3 col-md-6 special-grid best-seller">
+                <div class="product-card">
+                    <span class="tag-label">Promo</span>
+                    <div class="product-actions">
+                        <a href="#"><i class="fas fa-eye"></i></a>
+                        <a href="#"><i class="fas fa-sync-alt"></i></a>
+                        <a href="#"><i class="far fa-heart"></i></a>
+                    </div>
+                    <img src="images/img-pro-01.jpg" class="product-img" alt="Granola Cup Clásica">
+                    <div class="product-body">
+                        <h4>Granola Cup Clásica</h4>
+                        <h5>S/ 8.00</h5>
+                        <a href="https://wa.me/51934820460?text=Hola!%20Quiero%20hacer%20un%20pedido%20de%20Granola%20Cup%20Cl%C3%A1sica%20🍯%0APrecio:%20S/%208.00%0ACantidad:%20___%0A*Importante*:%20Para%20realizar%20el%20pedido,%20debes%20pagar%20el%2050%25%20antes.%0ANombre:%20___%0AGPS:%20___%0AComentarios:%20___" class="btn-cart">Pedir por WhatsApp</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Producto 2 -->
+            <div class="col-lg-3 col-md-6 special-grid top-featured">
+                <div class="product-card">
+                    <span class="tag-label new">Nuevo</span>
+                    <div class="product-actions">
+                        <a href="#"><i class="fas fa-eye"></i></a>
+                        <a href="#"><i class="fas fa-sync-alt"></i></a>
+                        <a href="#"><i class="far fa-heart"></i></a>
+                    </div>
+                    <img src="images/img-pro-02.jpg" class="product-img" alt="Granola Cup Chocolate">
+                    <div class="product-body">
+                        <h4>Granola Cup Chocolate</h4>
+                        <h5>S/ 9.50</h5>
+                        <a href="https://wa.me/51934820460?text=Hola!%20Quiero%20hacer%20un%20pedido%20de%20Granola%20Cup%20Chocolate%20🍫%0APrecio:%20S/%209.50%0ACantidad:%20___%0A*Importante*:%20Para%20realizar%20el%20pedido,%20debes%20pagar%20el%2050%25%20antes.%0ANombre:%20___%0AGPS:%20___%0AComentarios:%20___" class="btn-cart">Pedir por WhatsApp</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Producto 3 -->
+            <div class="col-lg-3 col-md-6 special-grid top-featured">
+                <div class="product-card">
+                    <span class="tag-label">Especial</span>
+                    <div class="product-actions">
+                        <a href="#"><i class="fas fa-eye"></i></a>
+                        <a href="#"><i class="fas fa-sync-alt"></i></a>
+                        <a href="#"><i class="far fa-heart"></i></a>
+                    </div>
+                    <img src="images/img-pro-03.jpg" class="product-img" alt="Granola Cup Frutas">
+                    <div class="product-body">
+                        <h4>Granola Cup Frutas</h4>
+                        <h5>S/ 10.00</h5>
+                        <a href="https://wa.me/51934820460?text=Hola!%20Quiero%20hacer%20un%20pedido%20de%20Granola%20Cup%20Frutas%20🍓%0APrecio:%20S/%2010.00%0ACantidad:%20___%0A*Importante*:%20Para%20realizar%20el%20pedido,%20debes%20pagar%20el%2050%25%20antes.%0ANombre:%20___%0AGPS:%20___%0AComentarios:%20___" class="btn-cart">Pedir por WhatsApp</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Producto 4 -->
+            <div class="col-lg-3 col-md-6 special-grid best-seller">
+                <div class="product-card">
+                    <span class="tag-label top">Top</span>
+                    <div class="product-actions">
+                        <a href="#"><i class="fas fa-eye"></i></a>
+                        <a href="#"><i class="fas fa-sync-alt"></i></a>
+                        <a href="#"><i class="far fa-heart"></i></a>
+                    </div>
+                    <img src="images/img-pro-04.jpg" class="product-img" alt="Granola Cup Nut & Honey">
+                    <div class="product-body">
+                        <h4>Granola Cup Nut & Honey</h4>
+                        <h5>S/ 11.00</h5>
+                        <a href="https://wa.me/51934820460?text=Hola!%20Quiero%20hacer%20un%20pedido%20de%20Granola%20Cup%20Nut%20%26%20Honey%20🥜🍯%0APrecio:%20S/%2011.00%0ACantidad:%20___%0A*Importante*: %20Para%20realizar%20el%20pedido,%20debes%20pagar%20el%2050%25%20antes.%0ANombre:%20___%0AGPS:%20___%0AComentarios:%20___" class="btn-cart">Pedir por WhatsApp</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Botón Ver todos -->
+        <div class="row mt-5">
+            <div class="col-12 text-center">
+                <a href="#" class="btn hvr-hover" style="padding: 12px 40px; font-size: 18px; border-radius:12px;">
+                    Ver todos los productos
+                </a>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+
+
+
+
+    <!-- Start Instagram Feed  -->
+    <div class="instagram-box">
+        <div class="main-instagram owl-carousel owl-theme">
+            <div class="item">
+                <div class="ins-inner-box">
+                    <img src="images/instagram-img-01.jpg" alt="" />
+                    <div class="hov-in">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="ins-inner-box">
+                    <img src="images/instagram-img-02.jpg" alt="" />
+                    <div class="hov-in">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="ins-inner-box">
+                    <img src="images/instagram-img-03.jpg" alt="" />
+                    <div class="hov-in">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="ins-inner-box">
+                    <img src="images/instagram-img-04.jpg" alt="" />
+                    <div class="hov-in">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="ins-inner-box">
+                    <img src="images/instagram-img-05.jpg" alt="" />
+                    <div class="hov-in">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="ins-inner-box">
+                    <img src="images/instagram-img-06.jpg" alt="" />
+                    <div class="hov-in">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="ins-inner-box">
+                    <img src="images/instagram-img-07.jpg" alt="" />
+                    <div class="hov-in">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="ins-inner-box">
+                    <img src="images/instagram-img-08.jpg" alt="" />
+                    <div class="hov-in">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="ins-inner-box">
+                    <img src="images/instagram-img-09.jpg" alt="" />
+                    <div class="hov-in">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="ins-inner-box">
+                    <img src="images/instagram-img-05.jpg" alt="" />
+                    <div class="hov-in">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Instagram Feed  -->
+
+
+    <!-- Start Footer  -->
+<footer class="bg-dark text-light pt-5">
+    <div class="footer-main">
+        <div class="container">
+
+            <!-- Parte superior -->
+            <div class="row g-4">
+
+                <!-- Horario de atención -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="footer-top-box">
+                        <h3 class="fw-bold text-uppercase">Horario de Atención</h3>
+                        <ul class="list-time mt-3">
+                            <li>Lunes a Viernes: 08:00 am - 06:00 pm</li>
+                            <li>Sábado: 09:00 am - 08:00 pm</li>
+                            <li>Domingo: <span class="text-warning">Cerrado</span></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Newsletter -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="footer-top-box">
+                        <h3 class="fw-bold text-uppercase">Boletín Informativo</h3>
+                        <p class="mt-2">Recibe promociones, combos y novedades de Mini Granola Cups y Cositas Ricas.</p>
+                        <form class="newsletter-box mt-3">
+                            <div class="form-group position-relative">
+                                <input type="email" class="form-control rounded-pill" placeholder="Correo electrónico*" />
+                                <i class="fa fa-envelope position-absolute"
+                                    style="right:15px; top:50%; transform:translateY(-50%); color:#777;"></i>
+                            </div>
+                            <button class="btn btn-primary w-100 mt-3 rounded-pill" type="submit">Suscribirme</button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Redes sociales -->
+                <div class="col-lg-4 col-md-12">
+                    <div class="footer-top-box">
+                        <h3 class="fw-bold text-uppercase">Redes Sociales</h3>
+                        <p class="mt-2">Síguenos para enterarte de lanzamientos y promociones de nuestros mini postres.</p>
+                        <ul class="d-flex gap-3 mt-3 list-unstyled">
+                            <li><a href="#" class="text-light fs-4"><i class="fab fa-facebook"></i></a></li>
+                            <li><a href="#" class="text-light fs-4"><i class="fab fa-instagram"></i></a></li>
+                            <li><a href="#" class="text-light fs-4"><i class="fab fa-whatsapp"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+
+            <hr class="my-4 border-secondary">
+
+            <!-- Parte inferior -->
+            <div class="row g-4">
+
+                <!-- Sobre nosotros -->
+                <div class="col-lg-4 col-md-12">
+                    <div class="footer-widget">
+                        <h4 class="fw-bold text-uppercase">Sobre Nosotros</h4>
+                        <p class="mt-3">
+                            En <strong>Cositas Ricas</strong> elaboramos mini postres y <strong>Mini Granola Cups</strong> con ingredientes frescos y naturales. 
+                            Calidad y sabor en cada bocado.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Información -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="footer-link">
+                        <h4 class="fw-bold text-uppercase">Información</h4>
+                        <ul class="list-unstyled mt-3">
+                            <li><a href="#" class="text-light">Nosotros</a></li>
+                            <li><a href="#" class="text-light">Atención al Cliente</a></li>
+                            <li><a href="#" class="text-light">Mapa del Sitio</a></li>
+                            <li><a href="#" class="text-light">Términos y Condiciones</a></li>
+                            <li><a href="#" class="text-light">Política de Privacidad</a></li>
+                            <li><a href="#" class="text-light">Información de Envíos</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Contáctanos -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="footer-link-contact">
+                        <h4 class="fw-bold text-uppercase">Contáctanos</h4>
+                        <ul class="list-unstyled mt-3">
+                            <li>
+                                <p><i class="fas fa-map-marker-alt me-2"></i>
+                                    Dirección: Calle Repostería 456, Lima - Perú
+                                </p>
+                            </li>
+                            <li>
+                                <p><i class="fas fa-phone me-2"></i>
+                                    WhatsApp: <a href="https://wa.me/51934820460" class="text-light">+51 934 820 460</a>
+                                </p>
+                            </li>
+                            <li>
+                                <p><i class="fas fa-envelope me-2"></i>
+                                    Correo: <a href="mailto:contacto@cositasricas.com" class="text-light">contacto@cositasricas.com</a>
+                                </p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+
+            <hr class="border-secondary mt-4">
+
+            <!-- Copy -->
+            <div class="text-center pb-3">
+                <p class="mb-0">&copy; 2025 Cositas Ricas. Todos los derechos reservados.</p>
+            </div>
+
+        </div>
+    </div>
+</footer>
+<!-- End Footer  -->
+
+
+    <a href="#" id="back-to-top" title="Back to top" style="display: none;">&uarr;</a>
+
+    <!-- ALL JS FILES -->
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <!-- ALL PLUGINS -->
+    <script src="js/jquery.superslides.min.js"></script>
+    <script src="js/bootstrap-select.js"></script>
+    <script src="js/inewsticker.js"></script>
+    <script src="js/bootsnav.js."></script>
+    <script src="js/images-loded.min.js"></script>
+    <script src="js/isotope.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/baguetteBox.min.js"></script>
+    <script src="js/form-validator.min.js"></script>
+    <script src="js/contact-form-script.js"></script>
+    <script src="js/custom.js"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+
+            const buttons = document.querySelectorAll(".filter-button-group button");
+            const items = document.querySelectorAll(".special-list .special-grid");
+
+            buttons.forEach(btn => {
+                btn.addEventListener("click", function () {
+
+                    // Quitar clase activa
+                    buttons.forEach(b => b.classList.remove("active"));
+                    this.classList.add("active");
+
+                    let filter = this.getAttribute("data-filter");
+
+                    items.forEach(item => {
+                        if (filter === "*") {
+                            item.style.display = "block";
+                        } else {
+                            if (item.classList.contains(filter.substring(1))) {
+                                item.style.display = "block";
+                            } else {
+                                item.style.display = "none";
+                            }
+                        }
+                    });
+
+                });
+            });
+
+        });
+    </script>
+
+</body>
+
+</html>
