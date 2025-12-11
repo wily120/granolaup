@@ -27,6 +27,8 @@
     <link rel="stylesheet" href="css/responsive.css">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
 
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -102,103 +104,54 @@
 
     <!-- Start Main Top -->
     <header class="main-header">
-
-        <!-- Start Navigation -->
-        <nav class="navbar navbar-expand-lg navbar-light navbar-default bootsnav" style="background-color: #FAF6EE;">
-            <!-- Blanco crema -->
-
+        <nav class="navbar navbar-expand-lg navbar-light bg-light navbar-default bootsnav">
             <div class="container">
 
-                <!-- Logo -->
+                <!-- Logo y Botón Responsive -->
                 <div class="navbar-header">
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu"
+                        aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
                         <i class="fa fa-bars"></i>
                     </button>
 
+                    <!-- Logo -->
                     <a class="navbar-brand" href="index.html">
-                        <img src="images/logo.png" class="logo img-fluid" alt="Cositas Ricas - Hot Cakes"
-                            style="max-width: 120px; height: auto;">
+                        <img src="images/logo.png" class="logo img-fluid" alt="Cositas Ricas"
+                            style="max-width: 110px; height: auto;">
                     </a>
                 </div>
 
-                <!-- Inicio Menú -->
+                <!-- Menú con iconos -->
                 <div class="collapse navbar-collapse" id="navbar-menu">
                     <ul class="nav navbar-nav ml-auto" data-in="fadeInDown" data-out="fadeOutUp">
 
                         <li class="nav-item active">
-                            <a class="nav-link" href="index.html">Inicio</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="about.html">Nosotros</a>
-                        </li>
-
-                        <li class="dropdown">
-                            <a href="#" class="nav-link dropdown-toggle arrow" data-toggle="dropdown">Tienda</a>
-                            <ul class="dropdown-menu">
-                                <li><a href="shop.html">Catálogo</a></li>
-                                <li><a href="shop-detail.html">Detalle del Producto</a></li>
-                                <li><a href="cart.html">Carrito</a></li>
-                                <li><a href="checkout.html">Pagar</a></li>
-                                <li><a href="my-account.html">Mi Cuenta</a></li>
-                                <li><a href="wishlist.html">Favoritos</a></li>
-                            </ul>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="gallery.html">Galería</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="contact-us.html">Contáctanos</a>
-                        </li>
-
-                    </ul>
-                </div>
-                <!-- Fin Menú -->
-
-                <!-- Íconos carrito / búsqueda -->
-                <div class="attr-nav">
-                    <ul>
-                        <li class="search">
-                            <a href="#"><i class="fa fa-search"></i></a>
-                        </li>
-
-                        <li class="side-menu">
-                            <a href="#">
-                                <i class="fa fa-shopping-bag"></i>
-                                <span class="badge">0</span>
-                                <p>Mi Carrito</p>
+                            <a class="nav-link" href="index.html">
+                                <i class="fa-solid fa-house"></i> Inicio
                             </a>
                         </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="about.html">
+                                <i class="fa-solid fa-users"></i> Sobre Nosotros
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="contact-us.html">
+                                <i class="fa-solid fa-envelope"></i> Contáctanos
+                            </a>
+                        </li>
+
                     </ul>
                 </div>
 
-            </div>
 
-            <!-- Side Menu -->
-            <div class="side">
-                <a href="#" class="close-side"><i class="fa fa-times"></i></a>
-
-                <li class="cart-box">
-                    <ul class="cart-list">
-
-                        <!-- Aquí luego lo conectamos al carrito real -->
-
-                        <li class="total">
-                            <a href="cart.html" class="btn btn-default hvr-hover btn-cart">Ver carrito</a>
-                            <span class="float-right"><strong>Total</strong>: S/ 0.00</span>
-                        </li>
-                    </ul>
-                </li>
 
             </div>
-            <!-- End Side Menu -->
-
         </nav>
-        <!-- End Navigation -->
-
     </header>
+
     <!-- End Main Top -->
 
 
@@ -207,7 +160,7 @@
         <div class="container">
             <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-search"></i></span>
-                <input type="text" class="form-control" placeholder="Buscar...">
+                <input type="text" class="form-control" placeholder="Search">
                 <span class="input-group-addon close-search"><i class="fa fa-times"></i></span>
             </div>
         </div>
@@ -235,125 +188,261 @@
     <div class="about-box-main py-5" style="background:#FFF7F9;">
         <div class="container">
 
+            <style>
+                /* Caja principal */
+                .sobre-cositas {
+                    background: #ffffff;
+                    padding: 35px;
+                    border-radius: 18px;
+                    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+                    transition: all 0.35s ease;
+                    border-left: 6px solid #E58A9B;
+                }
+
+                .sobre-cositas:hover {
+                    transform: translateY(-8px);
+                    box-shadow: 0 14px 35px rgba(0, 0, 0, 0.18);
+                }
+
+                /* Tarjetas de valores */
+                .valor-box {
+                    background: white;
+                    padding: 25px;
+                    border-radius: 15px;
+                    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+                    transition: all 0.3s ease;
+                    border-top: 4px solid #E58A9B;
+                }
+
+                .valor-box:hover {
+                    transform: translateY(-6px);
+                    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+                }
+
+                /* Equipo */
+                .our-team {
+                    background: white;
+                    border-radius: 15px;
+                    padding: 20px;
+                    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+                    transition: all 0.3s ease;
+                    border-bottom: 4px solid #E58A9B;
+                }
+
+                .our-team:hover {
+                    transform: translateY(-7px);
+                    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.18);
+                }
+
+                .our-team img {
+                    border-radius: 12px;
+                    height: 210px;
+                    width: 100%;
+                    object-fit: cover;
+                }
+
+                /* Títulos */
+                .section-title {
+                    font-weight: 800;
+                    color: #242323;
+                    margin-bottom: 20px;
+                    text-transform: uppercase;
+                    letter-spacing: 1px;
+                }
+            </style>
+
             <!-- BLOQUE PRINCIPAL -->
             <div class="row align-items-center">
 
                 <!-- Imagen -->
                 <div class="col-lg-6 mb-4">
-                    <img class="img-fluid rounded shadow-sm" src="images/about-img.jpg"
+                    <img class="img-fluid rounded shadow-sm" src="images/logo.png"
                         alt="Cositas Ricas - Mini Granola Cups" style="border-radius:20px;">
                 </div>
 
                 <!-- Texto -->
                 <div class="col-lg-6">
-                    <h2 class="mb-4" style="font-weight:800; color:#E58A9B;">
-                        Sobre <span style="color:#242323;">Cositas Ricas</span>
-                    </h2>
+                    <div class="sobre-cositas">
+                        <h2 class="mb-4" style="font-weight:800; color:#E58A9B;">
+                            Sobre <span style="color:#242323;">Cositas Ricas</span>
+                        </h2>
 
-                    <p style="font-size:1.1rem; color:#4A4A4A; line-height:1.7;">
-                        En <strong>Cositas Ricas</strong> nos dedicamos a crear mini postres irresistibles y nuestras
-                        famosas <strong>Mini Granola Cups</strong>, elaboradas con ingredientes frescos, naturales y
-                        mucho amor.
-                        Queremos llevar sonrisas y momentos dulces a todos nuestros clientes.
-                    </p>
+                        <p style="font-size:1.1rem; color:#4A4A4A; line-height:1.75;">
+                            <strong>Cositas Ricas</strong> nace como un proyecto creado por un grupo de estudiantes
+                            apasionados que decidieron emprender juntos y compartir su gusto por la repostería creativa.
+                            Elaboramos mini postres irresistibles y nuestras queridas
+                            <strong>Mini Granola Cups</strong>, combinando frescura, dedicación y mucha ilusión.
+                        </p>
 
-                    <p style="font-size:1.1rem; color:#4A4A4A; line-height:1.7;">
-                        Cada producto está hecho con pasión y cuidado, pensando en ofrecer experiencias únicas que
-                        combinen sabor, frescura y presentación impecable. 💗🍓🥄
-                    </p>
+                        <p style="font-size:1.1rem; color:#4A4A4A; line-height:1.75;">
+                            Cada producto que preparamos refleja nuestro esfuerzo, aprendizaje y trabajo en equipo.
+                            Buscamos crear experiencias dulces que transmitan calidad, cariño y un toque juvenil.
+                            Gracias por acompañarnos en este sueño que apenas comienza. 💗🍓✨
+                        </p>
 
-                    <a class="btn hvr-hover" href="#"
-                        style="background:#E58A9B; border-radius:10px; padding:10px 25px; color:white;">
-                        Conoce nuestro menú
-                    </a>
+                        <a class="btn hvr-hover" href="#"
+                            style="background:#E58A9B; border-radius:10px; padding:10px 25px; color:white; font-weight:600;">
+                            Conoce nuestro menú
+                        </a>
+                    </div>
                 </div>
+
             </div>
 
             <!-- CARACTERÍSTICAS / VALORES -->
+            <!-- CARACTERÍSTICAS / VALORES -->
+            <style>
+                .valor-box {
+                    background: white;
+                    padding: 25px;
+                    border-radius: 18px;
+                    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+                    transition: all 0.3s ease;
+                    border-top: 5px solid #E58A9B;
+                    height: 100%;
+                }
+
+                .valor-box:hover {
+                    transform: translateY(-8px);
+                    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.15);
+                }
+
+                .valor-img {
+                    width: 100px;
+                    height: 100px;
+                    object-fit: cover;
+                    border-radius: 50%;
+                    margin-bottom: 15px;
+                    border: 3px solid #E58A9B;
+                    box-shadow: 0 4px 10px rgba(229, 138, 155, 0.4);
+                    transition: all 0.3s ease;
+                }
+
+                .valor-box:hover .valor-img {
+                    transform: scale(1.08);
+                }
+            </style>
+
             <div class="row text-center my-5">
 
                 <div class="col-sm-6 col-lg-4 mb-4">
-                    <div class="p-4 rounded shadow-sm"
-                        style="background:white; transition:0.3s; hover:transform:translateY(-5px);">
+                    <div class="valor-box">
+                        <img src="images/imagen2.jpg" class="valor-img" alt="Hecho con Amor">
                         <h3 style="color:#E58A9B; font-weight:700;">Hecho con Amor</h3>
-                        <p>Todos nuestros postres llevan dedicación y cariño en cada detalle.</p>
+                        <p>Todo lo que hacemos tiene un toque especial de dedicación, cariño y cuidado en cada detalle.
+                        </p>
                     </div>
                 </div>
 
                 <div class="col-sm-6 col-lg-4 mb-4">
-                    <div class="p-4 rounded shadow-sm" style="background:white;">
+                    <div class="valor-box">
+                        <img src="images/imagen3.webp" class="valor-img" alt="Ingredientes Frescos">
                         <h3 style="color:#E58A9B; font-weight:700;">Ingredientes Frescos</h3>
-                        <p>Usamos productos de calidad para asegurar el mejor sabor y frescura.</p>
+                        <p>Elegimos insumos de calidad para asegurar la mejor textura, aroma y sabor en cada creación.
+                        </p>
                     </div>
                 </div>
 
                 <div class="col-sm-6 col-lg-4 mb-4">
-                    <div class="p-4 rounded shadow-sm" style="background:white;">
-                        <h3 style="color:#E58A9B; font-weight:700;">Creatividad y Emprendimiento</h3>
-                        <p>Somos un equipo joven que combina creatividad, pasión y profesionalismo.</p>
+                    <div class="valor-box">
+                        <img src="images/ins-bg.jpg" class="valor-img" alt="Emprendimiento Joven">
+                        <h3 style="color:#E58A9B; font-weight:700;">Emprendimiento Joven</h3>
+                        <p>Somos estudiantes impulsados por la creatividad, la innovación y las ganas de crecer.</p>
                     </div>
                 </div>
 
             </div>
+
+            <style>
+                /* Contenedor general del equipo */
+                .our-team {
+                    padding: 20px;
+                    background: #fff;
+                    border-radius: 15px;
+                    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+                    transition: transform .3s ease, box-shadow .3s ease;
+                }
+
+                /* Efecto hover */
+                .our-team:hover {
+                    transform: translateY(-5px);
+                    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+                }
+
+                /* Imagen del equipo COMPLETA */
+                .our-team img {
+                    width: 100%;
+                    height: 300px;
+                    /* Ajusta si quieres más alto: 280, 320, etc. */
+                    object-fit: contain;
+                    /* ← Esto hace que la imagen NO se recorte */
+                    background: #f8f8f8;
+                    /* Fondo suave para imágenes verticales */
+                    padding: 10px;
+                    /* Espacio elegante */
+                    border-radius: 12px;
+                }
+
+                /* Nombre */
+                .our-team .title {
+                    font-size: 1.2rem;
+                    font-weight: 700;
+                    margin-top: 12px;
+                }
+
+                /* Cargo */
+                .our-team .post {
+                    display: block;
+                    font-size: .95rem;
+                    color: #666;
+                    margin-top: 3px;
+                }
+            </style>
 
             <!-- EQUIPO -->
             <div class="row my-4">
                 <div class="col-12 text-center mb-4">
-                    <h2 class="noo-sh-title" style="font-weight:800; color:#242323;">Nuestro Equipo</h2>
+                    <h2 class="section-title">Nuestro Equipo</h2>
                 </div>
 
-                <!-- Miembro 1 -->
+                <!-- Miembros -->
                 <div class="col-sm-6 col-lg-3 mb-4">
-                    <div class="hover-team text-center">
-                        <div class="our-team p-3 shadow-sm rounded" style="background:white; transition:0.3s;">
-                            <img src="images/team1.jpg" alt="Betsabé" class="img-fluid rounded mb-3">
-                            <h3 class="title" style="color:#E58A9B;">Betsabé</h3>
-                            <span class="post">Gerencia General</span>
-                        </div>
+                    <div class="our-team text-center">
+                        <img src="images/betzabe.jpg" alt="Betsabé">
+                        <h3 class="title" style="color:#E58A9B;">Betsabé</h3>
+                        <span class="post">Gerencia General</span>
                     </div>
                 </div>
 
-                <!-- Miembro 2 -->
                 <div class="col-sm-6 col-lg-3 mb-4">
-                    <div class="hover-team text-center">
-                        <div class="our-team p-3 shadow-sm rounded" style="background:white;">
-                            <img src="images/team2.jpg" alt="Maribel" class="img-fluid rounded mb-3">
-                            <h3 class="title" style="color:#E58A9B;">Maribel</h3>
-                            <span class="post">Área de Producción</span>
-                        </div>
+                    <div class="our-team text-center">
+                        <img src="images/maribel.jpg" alt="Maribel">
+                        <h3 class="title" style="color:#E58A9B;">Maribel</h3>
+                        <span class="post">Área de Producción</span>
                     </div>
                 </div>
 
-                <!-- Miembro 3 -->
                 <div class="col-sm-6 col-lg-3 mb-4">
-                    <div class="hover-team text-center">
-                        <div class="our-team p-3 shadow-sm rounded" style="background:white;">
-                            <img src="images/team3.jpg" alt="Meliza" class="img-fluid rounded mb-3">
-                            <h3 class="title" style="color:#E58A9B;">Meliza</h3>
-                            <span class="post">Área de Logística y Abastecimiento</span>
-                        </div>
+                    <div class="our-team text-center">
+                        <img src="images/meliza}.jpg" alt="Meliza">
+                        <h3 class="title" style="color:#E58A9B;">Meliza</h3>
+                        <span class="post">Logística y Abastecimiento</span>
                     </div>
                 </div>
 
-                <!-- Miembro 4 -->
                 <div class="col-sm-6 col-lg-3 mb-4">
-                    <div class="hover-team text-center">
-                        <div class="our-team p-3 shadow-sm rounded" style="background:white;">
-                            <img src="images/team4.jpg" alt="Josmy" class="img-fluid rounded mb-3">
-                            <h3 class="title" style="color:#E58A9B;">Josmy</h3>
-                            <span class="post">Área de Marketing y Comunicaciones</span>
-                        </div>
+                    <div class="our-team text-center">
+                        <img src="images/josmi.jpg" alt="Josmy">
+                        <h3 class="title" style="color:#E58A9B;">Josmy</h3>
+                        <span class="post">Marketing y Comunicaciones</span>
                     </div>
                 </div>
 
-                <!-- Miembro 5 -->
                 <div class="col-sm-6 col-lg-3 mb-4">
-                    <div class="hover-team text-center">
-                        <div class="our-team p-3 shadow-sm rounded" style="background:white;">
-                            <img src="images/team5.jpg" alt="Rosaura" class="img-fluid rounded mb-3">
-                            <h3 class="title" style="color:#E58A9B;">Rosaura</h3>
-                            <span class="post">Área Comercial y Atención al Cliente</span>
-                        </div>
+                    <div class="our-team text-center">
+                        <img src="images/rosaura.jpg" alt="Rosaura">
+                        <h3 class="title" style="color:#E58A9B;">Rosaura</h3>
+                        <span class="post">Área Comercial</span>
                     </div>
                 </div>
 
@@ -365,7 +454,26 @@
 
 
 
+
     <!-- Start Instagram Feed  -->
+    <style>
+        .instagram-box .ins-inner-box img {
+            width: 100%;
+            height: 250px;
+            /* Ajusta el tamaño que quieras */
+            object-fit: cover;
+            border: 3px solid #e6e6e6;
+            /* borde leve */
+            border-radius: 10px;
+            /* esquinas suaves */
+        }
+
+        .instagram-box .ins-inner-box {
+            overflow: hidden;
+            border-radius: 10px;
+        }
+    </style>
+
     <div class="instagram-box">
         <div class="main-instagram owl-carousel owl-theme">
             <div class="item">
@@ -376,6 +484,7 @@
                     </div>
                 </div>
             </div>
+
             <div class="item">
                 <div class="ins-inner-box">
                     <img src="images/instagram-img-02.jpg" alt="" />
@@ -384,6 +493,7 @@
                     </div>
                 </div>
             </div>
+
             <div class="item">
                 <div class="ins-inner-box">
                     <img src="images/instagram-img-03.jpg" alt="" />
@@ -392,6 +502,7 @@
                     </div>
                 </div>
             </div>
+
             <div class="item">
                 <div class="ins-inner-box">
                     <img src="images/instagram-img-04.jpg" alt="" />
@@ -400,6 +511,7 @@
                     </div>
                 </div>
             </div>
+
             <div class="item">
                 <div class="ins-inner-box">
                     <img src="images/instagram-img-05.jpg" alt="" />
@@ -408,6 +520,7 @@
                     </div>
                 </div>
             </div>
+
             <div class="item">
                 <div class="ins-inner-box">
                     <img src="images/instagram-img-06.jpg" alt="" />
@@ -416,6 +529,7 @@
                     </div>
                 </div>
             </div>
+
             <div class="item">
                 <div class="ins-inner-box">
                     <img src="images/instagram-img-07.jpg" alt="" />
@@ -424,6 +538,7 @@
                     </div>
                 </div>
             </div>
+
             <div class="item">
                 <div class="ins-inner-box">
                     <img src="images/instagram-img-08.jpg" alt="" />
@@ -432,6 +547,7 @@
                     </div>
                 </div>
             </div>
+
             <div class="item">
                 <div class="ins-inner-box">
                     <img src="images/instagram-img-09.jpg" alt="" />
@@ -440,6 +556,7 @@
                     </div>
                 </div>
             </div>
+
             <div class="item">
                 <div class="ins-inner-box">
                     <img src="images/instagram-img-05.jpg" alt="" />
@@ -451,6 +568,7 @@
         </div>
     </div>
     <!-- End Instagram Feed  -->
+
 
 
     <!-- Start Footer  -->
@@ -497,11 +615,18 @@
                             <h3 class="fw-bold text-uppercase">Redes Sociales</h3>
                             <p class="mt-2">Síguenos y mantente al día.</p>
                             <ul class="d-flex gap-3 mt-3 list-unstyled">
-                                <li><a href="#" class="text-light fs-4"><i class="fab fa-facebook"></i></a></li>
-                                <li><a href="#" class="text-light fs-4"><i class="fab fa-twitter"></i></a></li>
-                                <li><a href="#" class="text-light fs-4"><i class="fab fa-linkedin"></i></a></li>
-                                <li><a href="#" class="text-light fs-4"><i class="fab fa-instagram"></i></a></li>
-                                <li><a href="#" class="text-light fs-4"><i class="fab fa-whatsapp"></i></a></li>
+                                <li><a href="https://web.facebook.com/profile.php?id=61584664746484"
+                                        class="text-light fs-4"><i class="fab fa-facebook"></i></a></li>
+                                <li><a href="https://www.instagram.com/cositas_ricas_05/" class="text-light fs-4"><i
+                                            class="fab fa-instagram"></i></a></li>
+                                <li><a href="+51 961401454" class="text-light fs-4"><i class="fab fa-whatsapp"></i></a>
+                                </li>
+                                <li>
+                                    <a href="https://www.tiktok.com/@cositas_ricas_05?_r=1&_t=ZS-926jp8teef9"
+                                        class="text-light fs-4">
+                                        <i class="fab fa-tiktok"></i>
+                                    </a>
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -546,18 +671,18 @@
                             <ul class="list-unstyled mt-3">
                                 <li>
                                     <p><i class="fas fa-map-marker-alt me-2"></i>
-                                        Dirección: Calle Ejemplo 123, Lima - Perú
+                                        Dirección: Av. Arequipa 828, 12116 / San Geronimo de Tunan/ Junin, Perú
                                     </p>
                                 </li>
                                 <li>
                                     <p><i class="fas fa-phone me-2"></i>
-                                        Teléfono: <a href="tel:+51-999999999" class="text-light">+51 999 999 999</a>
+                                        Teléfono: <a href="tel:+51-999999999" class="text-light">+51 961401454</a>
                                     </p>
                                 </li>
                                 <li>
                                     <p><i class="fas fa-envelope me-2"></i>
                                         Correo: <a href="mailto:correo@ejemplo.com"
-                                            class="text-light">correo@ejemplo.com</a>
+                                            class="text-light">cositasricas050@gmail.com</a>
                                     </p>
                                 </li>
                             </ul>
@@ -570,7 +695,7 @@
 
                 <!-- Copy -->
                 <div class="text-center pb-3">
-                    <p class="mb-0">&copy; 2025 - Tu Empresa. Todos los derechos reservados.</p>
+                    <p class="mb-0">&copy; 2025 Cositas Ricas. Todos los derechos reservados.</p>
                 </div>
 
             </div>
@@ -578,13 +703,7 @@
     </footer>
     <!-- End Footer  -->
 
-    <!-- Start copyright  -->
-    <div class="footer-copyright">
-        <p class="footer-company">All Rights Reserved. &copy; 2018 <a href="#">ThewayShop</a> Design By :
-            <a href="https://html.design/">html design</a>
-        </p>
-    </div>
-    <!-- End copyright  -->
+
 
     <a href="#" id="back-to-top" title="Back to top" style="display: none;">&uarr;</a>
 
