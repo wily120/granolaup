@@ -23,6 +23,10 @@
     <!-- Site Icons -->
     <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
     <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -36,6 +40,7 @@
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/custom.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
 
     <!--[if lt IE 9]>
@@ -57,7 +62,7 @@
 
                     <!-- Teléfono -->
                     <div class="right-phone-box">
-                        <p>Contáctanos: <a href="https://wa.me/51900800100" target="_blank">+51 900 800 100</a></p>
+                        <p>Contáctanos: <a href="https://wa.me/51961401454" target="_blank">+51 961401454</a></p>
                     </div>
 
                     <!-- Enlaces -->
@@ -119,7 +124,6 @@
 
     <!-- Inicio Encabezado Principal -->
     <header class="main-header">
-        <!-- Inicio Navegación -->
         <nav class="navbar navbar-expand-lg navbar-light bg-light navbar-default bootsnav">
             <div class="container">
 
@@ -137,67 +141,53 @@
                     </a>
                 </div>
 
-                <!-- Menú -->
+                <!-- Menú con iconos -->
                 <div class="collapse navbar-collapse" id="navbar-menu">
                     <ul class="nav navbar-nav ml-auto" data-in="fadeInDown" data-out="fadeOutUp">
-                        <li class="nav-item active"><a class="nav-link" href="index.html">Inicio</a></li>
-                        <li class="nav-item"><a class="nav-link" href="about.html">Sobre Nosotros</a></li>
 
-                        <li class="dropdown">
-                            <a href="#" class="nav-link dropdown-toggle arrow" data-toggle="dropdown">Tienda</a>
-                            <ul class="dropdown-menu">
-                                <li><a href="shop.html">Catálogo</a></li>
-                                <li><a href="shop-detail.html">Detalle del Producto</a></li>
-                                <li><a href="#contact">Hacer Pedido</a></li>
-                            </ul>
-                        </li>
-
-                        <li class="nav-item"><a class="nav-link" href="gallery.html">Galería</a></li>
-                        <li class="nav-item"><a class="nav-link" href="contact-us.html">Contáctanos</a></li>
-                    </ul>
-                </div>
-
-                <!-- Iconos / WhatsApp en vez de carrito -->
-                <div class="attr-nav">
-                    <ul>
-                        <li class="search">
-                            <a href="#"><i class="fa fa-search"></i></a>
-                        </li>
-                        <li class="side-menu">
-                            <a href="https://wa.me/51900800100" target="_blank">
-                                <i class="fa fa-whatsapp"></i>
-                                <p>Pedir por WhatsApp</p>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="index.html">
+                                <i class="fa-solid fa-house"></i> Inicio
                             </a>
                         </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="about.html">
+                                <i class="fa-solid fa-users"></i> Sobre Nosotros
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="contact-us.html">
+                                <i class="fa-solid fa-envelope"></i> Contáctanos
+                            </a>
+                        </li>
+
                     </ul>
                 </div>
+
+
 
             </div>
         </nav>
-        <!-- Fin Navegación -->
     </header>
+
     <!-- Fin Encabezado Principal -->
 
 
 
 
-    <!-- Inicio Buscador Superior -->
+    <!-- Start Top Search -->
     <div class="top-search">
         <div class="container">
             <div class="input-group">
-                <span class="input-group-addon">
-                    <i class="fa fa-search"></i>
-                </span>
-
-                <input type="text" class="form-control" placeholder="Buscar mini granola cups, postres o snacks...">
-
-                <span class="input-group-addon close-search">
-                    <i class="fa fa-times"></i>
-                </span>
+                <span class="input-group-addon"><i class="fa fa-search"></i></span>
+                <input type="text" class="form-control" placeholder="Search">
+                <span class="input-group-addon close-search"><i class="fa fa-times"></i></span>
             </div>
         </div>
     </div>
-    <!-- Fin Buscador Superior -->
+    <!-- End Top Search -->
 
 
 
@@ -218,7 +208,6 @@
                                 Mini granola cups y postres artesanales hechos con amor.<br>
                                 ¡Deliciosos, frescos y listos para consentirte!
                             </p>
-                            <p><a class="btn hvr-hover" href="shop.html">Ver Productos</a></p>
                         </div>
                     </div>
                 </div>
@@ -237,7 +226,7 @@
                                 Cada porción preparada con ingredientes naturales y mucho cariño.<br>
                                 Prueba nuestros sabores únicos y ediciones limitadas.
                             </p>
-                            <p><a class="btn hvr-hover" href="shop.html">Ver Catálogo</a></p>
+
                         </div>
                     </div>
                 </div>
@@ -256,7 +245,7 @@
                                 Aprovecha descuentos, combos y pedidos especiales por WhatsApp.<br>
                                 ¡No te quedes sin tus mini granola cups favoritas!
                             </p>
-                            <p><a class="btn hvr-hover" href="https://wa.me/51900800100" target="_blank">Pedir Ahora</a>
+
                             </p>
                         </div>
                     </div>
@@ -397,125 +386,170 @@
     <!-- Start Products  -->
 
     <style>
-        /* Contenedor del producto */
+        /* ==== ESTILO BASE DE TARJETAS ==== */
         .product-card {
-            background: #fff;
-            border-radius: 18px;
+            background: #ffffff;
+            border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+            transition: all 0.35s ease;
             position: relative;
+            border: 1px solid #f3f3f3;
+
+            /* 🔥 NUEVO ESPACIADO ENTRE TARJETAS 🔥 */
+            margin: 20px 0;
+            /* arriba y abajo con aire elegante */
         }
 
         .product-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+            transform: translateY(-8px);
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
         }
 
-        /* Imagen */
+        /* ==== IMÁGENES ==== */
         .product-img {
             width: 100%;
             height: 240px;
             object-fit: cover;
-            border-bottom: 1px solid #eee;
+            transition: 0.3s ease;
         }
 
-        /* Etiquetas “Promo”, “Nuevo”, etc. */
+        .product-card:hover .product-img {
+            transform: scale(1.05);
+        }
+
+        /* ==== ETIQUETAS ==== */
         .tag-label {
             position: absolute;
-            top: 12px;
-            left: 12px;
-            background: #ff6b81;
+            top: 14px;
+            left: 14px;
+            background: #ff6e8f;
             color: #fff;
-            padding: 5px 12px;
-            font-size: 12px;
-            border-radius: 10px;
-            font-weight: bold;
+            padding: 6px 14px;
+            font-size: 13px;
+            border-radius: 12px;
+            font-weight: 700;
+            letter-spacing: .5px;
             text-transform: uppercase;
+            box-shadow: 0 3px 8px rgba(255, 0, 61, 0.28);
         }
 
         .tag-label.new {
-            background: #28a745;
+            background: #28c76f;
+            box-shadow: 0 3px 8px rgba(40, 199, 111, 0.3);
         }
 
         .tag-label.top {
-            background: #ffc107;
+            background: #ffd057;
             color: #000;
+            box-shadow: 0 3px 8px rgba(255, 208, 87, 0.4);
         }
 
-        /* Contenido */
+        /* ==== ICONOS DE ACCIÓN ==== */
+        .product-actions {
+            position: absolute;
+            top: 14px;
+            right: 14px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .product-actions a {
+            width: 38px;
+            height: 38px;
+            background: #ffffffd8;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #444;
+            transition: all 0.25s ease;
+            backdrop-filter: blur(4px);
+        }
+
+        .product-actions a:hover {
+            background: #ff6e8f;
+            color: #fff;
+        }
+
+        /* ==== CUERPO DE PRODUCTO ==== */
         .product-body {
-            padding: 15px;
+            padding: 18px;
             text-align: center;
         }
 
         .product-body h4 {
             font-size: 18px;
-            font-weight: 600;
-            margin-bottom: 8px;
+            font-weight: 700;
+            margin-bottom: 6px;
+            color: #333;
         }
 
         .product-body h5 {
             font-size: 20px;
-            font-weight: bold;
-            color: #e52b2b;
+            font-weight: 800;
+            color: #e63946;
         }
 
-        /* Botón agregar al carrito */
+        /* ==== BOTÓN WHATSAPP ==== */
         .btn-cart {
             display: block;
             width: 100%;
-            padding: 10px;
-            background: #ff6b81;
+            padding: 12px;
+            background: linear-gradient(135deg, #ff6e8f, #ff8fa8);
             color: #fff;
-            border-radius: 10px;
-            margin-top: 10px;
+            border-radius: 12px;
+            margin-top: 12px;
             text-decoration: none;
-            font-weight: bold;
+            font-weight: 700;
+            border: none;
             transition: 0.3s;
+            box-shadow: 0 4px 12px rgba(255, 110, 143, 0.35);
         }
 
         .btn-cart:hover {
-            background: #c62828;
+            background: linear-gradient(135deg, #ff4f76, #ff6e8f);
+            box-shadow: 0 6px 16px rgba(255, 110, 143, 0.45);
+        }
+
+        /* ==== BOTONES DE FILTRO ==== */
+        .filter-button-group button {
+            padding: 10px 18px;
+            border: none;
+            background: #f8f8f8;
+            color: #444;
+            font-weight: 600;
+            border-radius: 10px;
+            margin: 0 6px;
+            transition: 0.25s ease;
+        }
+
+        .filter-button-group button:hover,
+        .filter-button-group .active {
+            background: #ff6e8f;
             color: #fff;
+            box-shadow: 0 4px 10px rgba(255, 110, 143, 0.35);
         }
 
-        /* Acciones de hover */
-        .product-actions {
-            position: absolute;
-            top: 12px;
-            right: 12px;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-
+        /* Cursor tipo mano en botones */
+        .btn-cart,
+        .filter-button-group button,
         .product-actions a {
-            width: 35px;
-            height: 35px;
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: #333;
-            transition: 0.2s;
-        }
-
-        .product-actions a:hover {
-            background: #ff6b81;
-            color: #fff;
+            cursor: pointer !important;
         }
     </style>
 
-    <div class="products-box">
+
+    <div class="products-box" id="productos">
         <div class="container">
 
             <!-- Título -->
             <div class="row">
                 <div class="col-12 text-center mb-4">
-                    <h1 style="font-weight:700;">Mini Granola Cups & Snacks</h1>
-                    <p>Disfruta nuestras deliciosas mini granola cups, saludables y llenas de sabor 🍯🥣</p>
+                    <h1 style="font-weight:700; color:#ff6e8f;">Mini Granola Cups & Snacks</h1>
+                    <p style="font-size:16px;">Disfruta nuestras deliciosas mini granola cups, saludables y llenas de
+                        sabor 🍯🥣</p>
                 </div>
             </div>
 
@@ -533,183 +567,328 @@
             <!-- Productos -->
             <div class="row special-list g-4">
 
-                <!-- Producto 1 -->
-                <div class="col-lg-3 col-md-6 special-grid best-seller">
-                    <div class="product-card">
-                        <span class="tag-label">Promo</span>
-                        <div class="product-actions">
-                            <a href="#"><i class="fas fa-eye"></i></a>
-                            <a href="#"><i class="fas fa-sync-alt"></i></a>
-                            <a href="#"><i class="far fa-heart"></i></a>
-                        </div>
-                        <img src="images/img-pro-01.jpg" class="product-img" alt="Granola Cup Clásica">
-                        <div class="product-body">
-                            <h4>Granola Cup Clásica</h4>
-                            <h5>S/ 8.00</h5>
-                            <a href="#" class="btn-cart">Pedir por WhatsApp</a>
-
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Producto 2 -->
+                <!-- PRODUCTO 1 - Postres saludables (vasitos) -->
                 <div class="col-lg-3 col-md-6 special-grid top-featured">
                     <div class="product-card">
                         <span class="tag-label new">Nuevo</span>
-                        <div class="product-actions">
-                            <a href="#"><i class="fas fa-eye"></i></a>
-                            <a href="#"><i class="fas fa-sync-alt"></i></a>
-                            <a href="#"><i class="far fa-heart"></i></a>
-                        </div>
-                        <img src="images/img-pro-02.jpg" class="product-img" alt="Granola Cup Chocolate">
-                        <div class="product-body">
-                            <h4>Granola Cup Chocolate</h4>
-                            <h5>S/ 9.50</h5>
-                            <a href="#" class="btn-cart abrirModal">Pedir por WhatsApp</a>
+                        <img src="images/postrevasito.png" class="product-img" alt="Postres saludables (vasitos)">
 
+                        <div class="product-body">
+                            <h4>Postres Saludables (Vasitos o porcion personalizada)</h4>
+                            <h5>S/ 7.00</h5>
+
+                            <a href="#" class="btn-cart abrirPedido" data-producto="Postres Saludables (Vasitos)"
+                                data-precio="12.00">
+                                Pedir por WhatsApp
+                            </a>
                         </div>
                     </div>
                 </div>
 
-                <!-- Producto 3 -->
+                <!-- PRODUCTO 2 - Pasteles artesanales -->
                 <div class="col-lg-3 col-md-6 special-grid top-featured">
                     <div class="product-card">
-                        <span class="tag-label">Especial</span>
-                        <div class="product-actions">
-                            <a href="#"><i class="fas fa-eye"></i></a>
-                            <a href="#"><i class="fas fa-sync-alt"></i></a>
-                            <a href="#"><i class="far fa-heart"></i></a>
-                        </div>
-                        <img src="images/img-pro-03.jpg" class="product-img" alt="Granola Cup Frutas">
-                        <div class="product-body">
-                            <h4>Granola Cup Frutas</h4>
-                            <h5>S/ 10.00</h5>
-                            <a href="#" class="btn-cart abrirModal">Pedir por WhatsApp</a>
+                        <span class="tag-label new">Nuevo</span>
+                        <img src="images/pastel.jpg" class="product-img" alt="Pasteles artesanales">
 
+                        <div class="product-body">
+                            <h4>Pasteles Artesanales (pastel estandar 1kg)</h4>
+                            <h5>S/ 45.00</h5>
+
+                            <a href="#" class="btn-cart abrirPedido" data-producto="Pasteles Artesanales"
+                                data-precio="15.00">
+                                Pedir por WhatsApp
+                            </a>
                         </div>
                     </div>
                 </div>
 
-                <!-- Producto 4 -->
+                <!-- PRODUCTO 3 - Postres personalizados -->
+                <div class="col-lg-3 col-md-6 special-grid best-seller">
+                    <div class="product-card">
+                        <span class="tag-label">Especial</span>
+                        <img src="images/personalizado.jpg" class="product-img" alt="Postres personalizados">
+
+                        <div class="product-body">
+                            <h4>Postres Personalizados (desde)</h4>
+                            <h5>S/ 3.00</h5>
+
+                            <a href="#" class="btn-cart abrirPedido" data-producto="Postres Personalizados"
+                                data-precio="18.00">
+                                Pedir por WhatsApp
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PRODUCTO 4 - Cheesecakes fríos -->
                 <div class="col-lg-3 col-md-6 special-grid best-seller">
                     <div class="product-card">
                         <span class="tag-label top">Top</span>
-                        <div class="product-actions">
-                            <a href="#"><i class="fas fa-eye"></i></a>
-                            <a href="#"><i class="fas fa-sync-alt"></i></a>
-                            <a href="#"><i class="far fa-heart"></i></a>
+                        <img src="images/chess.jpg" class="product-img" alt="Cheesecakes frios">
+
+                        <div class="product-body">
+                            <h4>vasitos de Cheesecakes Fríos</h4>
+                            <h5>S/ 7.00</h5>
+
+                            <a href="#" class="btn-cart abrirPedido" data-producto="Cheesecakes Fríos"
+                                data-precio="14.50">
+                                Pedir por WhatsApp
+                            </a>
                         </div>
+                    </div>
+                </div>
+
+                <!-- PRODUCTO 5 - Gelatinas 3D y artísticas -->
+                <div class="col-lg-3 col-md-6 special-grid top-featured">
+                    <div class="product-card">
+                        <span class="tag-label new">Nuevo</span>
+                        <img src="images/gelatina.jpg" class="product-img" alt="Gelatinas 3D y artísticas">
+
+                        <div class="product-body">
+                            <h4>Gelatinas 3D y Artísticas(tamaño mediano)</h4>
+                            <h5>S/45.00</h5>
+
+                            <a href="#" class="btn-cart abrirPedido" data-producto="Gelatinas 3D y Artísticas"
+                                data-precio="13.00">
+                                Pedir por WhatsApp
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PRODUCTO 6 - Granola Cup Clásica -->
+                <div class="col-lg-3 col-md-6 special-grid best-seller">
+                    <div class="product-card">
+                        <span class="tag-label">Promo</span>
+                        <img src="images/img-pro-01.jpg" class="product-img" alt="Granola Cup Clásica">
+
+                        <div class="product-body">
+                            <h4>Granola Cup Clásica</h4>
+                            <h5>S/ 8.00</h5>
+
+                            <a href="#" class="btn-cart abrirPedido" data-producto="Granola Cup Clásica"
+                                data-precio="8.00">
+                                Pedir por WhatsApp
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PRODUCTO 7 - Granola Cup Chocolate -->
+                <div class="col-lg-3 col-md-6 special-grid top-featured">
+                    <div class="product-card">
+                        <span class="tag-label new">Nuevo</span>
+                        <img src="images/img-pro-02.jpg" class="product-img" alt="Granola Cup Chocolate">
+
+                        <div class="product-body">
+                            <h4>Granola Cup Chocolate</h4>
+                            <h5>S/ 9.50</h5>
+
+                            <a href="#" class="btn-cart abrirPedido" data-producto="Granola Cup Chocolate"
+                                data-precio="9.50">
+                                Pedir por WhatsApp
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PRODUCTO 8 - Granola Cup Frutas -->
+                <div class="col-lg-3 col-md-6 special-grid top-featured">
+                    <div class="product-card">
+                        <span class="tag-label">Especial</span>
+
+                        <img src="images/img-pro-03.jpg" class="product-img" alt="Granola Cup Frutas">
+
+                        <div class="product-body">
+                            <h4>Granola Cup Frutas</h4>
+                            <h5>S/ 10.00</h5>
+
+                            <a href="#" class="btn-cart abrirPedido" data-producto="Granola Cup Frutas"
+                                data-precio="10.00">
+                                Pedir por WhatsApp
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PRODUCTO 9 - Granola Cup Nut & Honey -->
+                <div class="col-lg-3 col-md-6 special-grid best-seller">
+                    <div class="product-card">
+                        <span class="tag-label top">Top</span>
+
                         <img src="images/img-pro-04.jpg" class="product-img" alt="Granola Cup Nut & Honey">
+
                         <div class="product-body">
                             <h4>Granola Cup Nut & Honey</h4>
                             <h5>S/ 11.00</h5>
-                            <a href="#" class="btn-cart abrirModal">Pedir por WhatsApp</a>
 
+                            <a href="#" class="btn-cart abrirPedido" data-producto="Granola Cup Nut & Honey"
+                                data-precio="11.00">
+                                Pedir por WhatsApp
+                            </a>
                         </div>
                     </div>
                 </div>
 
             </div>
-
-            <!-- Botón Ver todos -->
-            <div class="row mt-5">
-                <div class="col-12 text-center">
-                    <a href="#" class="btn hvr-hover" style="padding: 12px 40px; font-size: 18px; border-radius:12px;">
-                        Ver todos los productos
-                    </a>
-                </div>
-            </div>
-
         </div>
     </div>
 
 
+
+
     <!-- MODAL DE PEDIDO -->
+    <style>
+        /* Contenedor principal */
+        .pedido-modal {
+            border-radius: 18px;
+            border: 3px solid #ff6ea8;
+            overflow: hidden;
+            box-shadow: 0 0 25px rgba(255, 120, 170, 0.4);
+        }
+
+        /* Header */
+        .modal-header-custom {
+            background: linear-gradient(90deg, #ff4f90, #ff8abf);
+            color: white;
+        }
+
+        /* Inputs */
+        .modal-input {
+            border-radius: 10px !important;
+            border: 2px solid #ffaad2 !important;
+            transition: 0.2s;
+        }
+
+        .modal-input:focus {
+            box-shadow: 0 0 6px rgba(255, 100, 160, 0.5);
+            border-color: #ff5fa4 !important;
+        }
+
+        /* Caja de totales */
+        .pago-info-box {
+            padding: 15px;
+            border-radius: 12px;
+            background: #ffe6f1;
+            border-left: 5px solid #ff4f90;
+            font-size: 16px;
+        }
+
+        /* QR */
+        .qr-yape {
+            border: 3px solid #ff66aa;
+            padding: 8px;
+            border-radius: 12px;
+        }
+
+        .yape-text {
+            margin-top: 10px;
+            font-size: 15px;
+            color: #ff4f80;
+        }
+
+        /* Botones */
+        .btn-procesar {
+            background: #ff4f90;
+            color: white;
+            font-weight: bold;
+            border-radius: 10px;
+            padding: 10px 20px;
+            border: none;
+        }
+
+        .btn-procesar:hover {
+            background: #ff2f70;
+        }
+
+        .btn-cancelar {
+            background: #ddd;
+            border-radius: 10px;
+            padding: 10px 20px;
+            font-weight: bold;
+        }
+    </style>
+
     <!-- MODAL DE PEDIDO -->
-    <!-- MODAL DE PEDIDO -->
-    <div class="modal fade" id="pedidoModal" tabindex="-1" aria-hidden="true">
+    <div class="modal fade" id="modalPedido" tabindex="-1">
         <div class="modal-dialog modal-lg modal-dialog-centered">
-            <div class="modal-content shadow-lg" style="border-radius: 15px;">
+            <div class="modal-content pedido-modal">
 
-                <div class="modal-header bg-dark text-white">
-                    <h5 class="modal-title fw-bold">Confirmar Pedido</h5>
-
+                <div class="modal-header modal-header-custom">
+                    <h5 class="modal-title fw-bold">🧾 Procesar Pedido</h5>
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
                 </div>
 
-                <div class="modal-body p-4">
+                <div class="modal-body">
 
                     <form id="formPedido">
 
+                        <!-- Guardar datos del producto -->
                         <input type="hidden" id="productoNombre">
                         <input type="hidden" id="productoPrecio">
 
                         <div class="row g-3">
 
-                            <div class="col-md-4">
-                                <label class="form-label">Cantidad</label>
-                                <input type="number" class="form-control" id="cantidad" required min="1">
-                            </div>
-
-                            <div class="col-md-4">
-                                <label class="form-label">Precio Unitario</label>
-                                <input type="text" class="form-control" id="precioUnitario" disabled>
-                            </div>
-
-                            <div class="col-md-4">
-                                <label class="form-label">Pago 50%</label>
-                                <input type="text" class="form-control" id="pagoMitad" disabled>
+                            <div class="col-md-6">
+                                <label class="form-label fw-bold">Nombre del Cliente</label>
+                                <input type="text" id="cliente" class="form-control modal-input" required>
                             </div>
 
                             <div class="col-md-6">
-                                <label class="form-label">Ubicación Google Maps</label>
-                                <input type="text" class="form-control" id="gps" placeholder="Pega aquí tu ubicación">
-                            </div>
-
-                            <div class="col-md-6">
-                                <label class="form-label">Ciudad / Distrito</label>
-                                <input type="text" class="form-control" id="ciudad">
-                            </div>
-
-                            <div class="col-md-6">
-                                <label class="form-label">Nombre Completo</label>
-                                <input type="text" class="form-control" id="nombre" required>
-                            </div>
-
-                            <div class="col-md-6">
-                                <label class="form-label">Celular</label>
-                                <input type="text" class="form-control" id="celular" required>
-                            </div>
-
-                            <div class="col-md-12 mt-2">
-                                <p class="text-danger fw-bold">Debe pagar el 50% al número: <span
-                                        class="text-dark">934820460</span></p>
+                                <label class="form-label fw-bold">Teléfono</label>
+                                <input type="text" id="telefono" class="form-control modal-input" required>
                             </div>
 
                             <div class="col-md-12">
-                                <label class="form-label">Subir Comprobante</label>
-                                <input type="file" class="form-control" id="comprobante" accept="image/*" required>
+                                <label class="form-label fw-bold">Dirección / Distrito</label>
+                                <input type="text" id="direccion" class="form-control modal-input" required
+                                    placeholder="Ejemplo: Jr. Las Flores 123, Casa verde, Cerca al parque central, San Juan de Lurigancho">
+
+                                <small class="text-muted d-block mt-1">
+                                    📍 Por favor ingresa una dirección **completa y exacta**, incluyendo:
+                                    <br>• Nombre de la calle o avenida
+                                    <br>• Número de vivienda o referencia
+                                    <br>• Piso, bloque o número de puerta (si aplica)
+                                    <br>• Punto de referencia claro
+                                    <br>• Distrito correspondiente
+                                    <br><strong>Esto nos ayuda a entregar tu pedido lo más rápido posible. 💗</strong>
+                                </small>
                             </div>
 
-                            <div class="col-12 text-center mt-3">
-                                <img id="previewComprobante" src=""
-                                    style="max-width:200px; display:none; border-radius:10px;">
+
+                            <div class="col-md-6">
+                                <label class="form-label fw-bold">Cantidad (mínimo 10)</label>
+                                <input type="number" id="cantidad" class="form-control modal-input" required min="10">
                             </div>
 
-                            <div class="col-12">
-                                <label class="form-label">Comentarios</label>
-                                <textarea class="form-control" id="comentarios" rows="2"></textarea>
+                            <div class="col-md-6">
+                                <label class="form-label fw-bold">Subir comprobante (Yape)</label>
+                                <input type="file" id="comprobante" class="form-control modal-input" accept="image/*"
+                                    required>
+                            </div>
+
+                            <div class="col-md-12">
+                                <div class="pago-info-box">
+                                    <p>💰 <b>Total:</b> S/ <span id="totalValor">0.00</span></p>
+                                    <p>🩷 <b>Pago inicial (50%):</b> S/ <span id="pago50">0.00</span></p>
+                                </div>
                             </div>
 
                         </div>
 
                     </form>
 
+                    <div class="text-center mt-4">
+                        <img src="images/yape.webp" width="180" class="qr-yape">
+                        <p class="yape-text">📌 Escanea para pagar el 50% del pedido</p>
+                    </div>
+
                 </div>
 
                 <div class="modal-footer">
-                    <button class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                    <button class="btn btn-success" id="procesarPedido">Procesar Pedido</button>
+                    <button class="btn btn-cancelar" data-bs-dismiss="modal">Cancelar</button>
+                    <button class="btn btn-procesar" id="btnProcesar">Procesar Pedido</button>
                 </div>
 
             </div>
@@ -717,122 +896,303 @@
     </div>
 
 
-
     <script>
-        let productoNombre = "";
-        let productoPrecio = "";
+        let minimoActual = 1; // se actualizará según el producto
 
-        // Abrir modal desde cada producto
-        document.querySelectorAll(".btn-cart").forEach(btn => {
-            btn.addEventListener("click", function (e) {
-                e.preventDefault();
+        // Abrir modal desde los productos
+        document.querySelectorAll('.btn-cart').forEach(btn => {
+            btn.addEventListener('click', function () {
+                const card = this.closest('.product-card');
 
-                const card = this.closest(".product-card");
+                const nombre = card.querySelector('h4').innerText;
+                const precio = parseFloat(card.querySelector('h5').innerText.replace("S/ ", ""));
 
-                productoNombre = card.querySelector("h4").innerText;
-                productoPrecio = card.querySelector("h5").innerText.replace("S/ ", "");
+                document.getElementById("productoNombre").value = nombre;
+                document.getElementById("productoPrecio").value = precio;
 
-                document.getElementById("productoNombre").value = productoNombre;
-                document.getElementById("productoPrecio").value = productoPrecio;
-                document.getElementById("precioUnitario").value = "S/ " + productoPrecio;
+                // ===========================
+                // REGLA DE MÍNIMOS SEGÚN PRECIO
+                // ===========================
+                if (precio < 10) {
+                    minimoActual = 3; // mínimo 3–4 → usamos 3
+                } else if (precio >= 10 && precio <= 20) {
+                    minimoActual = 2;
+                } else {
+                    minimoActual = 1;
+                }
 
-                new bootstrap.Modal(document.getElementById("pedidoModal")).show();
+                // Actualizamos el input HTML
+                let inputCantidad = document.getElementById("cantidad");
+                inputCantidad.min = minimoActual;
+                inputCantidad.value = minimoActual;
+
+                // Mostramos mensaje visual
+                inputCantidad.previousElementSibling.innerHTML =
+                    `Cantidad <span class="text-danger fw-bold">(mínimo ${minimoActual})</span>`;
+
+                // Reiniciar totales
+                document.getElementById("totalValor").innerText = "0.00";
+                document.getElementById("pago50").innerText = "0.00";
+
+                let modal = new bootstrap.Modal(document.getElementById("modalPedido"));
+                modal.show();
             });
         });
 
-        // Vista previa del comprobante
-        document.getElementById("comprobante").addEventListener("change", function () {
-            const file = this.files[0];
-            const reader = new FileReader();
 
-            reader.onload = () => {
-                document.getElementById("previewComprobante").src = reader.result;
-                document.getElementById("previewComprobante").style.display = "block";
-            };
-            reader.readAsDataURL(file);
-        });
-
-        // Detectar cambios en cantidad y calcular 50%
+        // Actualizar total y pago 50% en tiempo real
         document.getElementById("cantidad").addEventListener("input", function () {
-            let cant = this.value;
-            let precio = productoPrecio;
-            let total50 = (cant * precio) / 2;
 
-            document.getElementById("pagoMitad").value = "S/ " + total50.toFixed(2);
+            let cantidad = parseInt(this.value) || 0;
+
+            // VALIDACIÓN DEL MÍNIMO
+            if (cantidad < minimoActual) {
+                this.value = minimoActual;
+                cantidad = minimoActual;
+
+                alert(`⚠️ El mínimo para este producto es ${minimoActual}.`);
+            }
+
+            let precio = parseFloat(document.getElementById("productoPrecio").value);
+
+            let total = cantidad * precio;
+            let pago50 = total / 2;
+
+            document.getElementById("totalValor").innerText = total.toFixed(2);
+            document.getElementById("pago50").innerText = pago50.toFixed(2);
         });
 
-        // Procesar pedido
-        document.getElementById("procesarPedido").addEventListener("click", async function () {
 
-            let nombre = document.getElementById("nombre").value;
-            let cantidad = document.getElementById("cantidad").value;
-            let gps = document.getElementById("gps").value;
-            let ciudad = document.getElementById("ciudad").value;
-            let celular = document.getElementById("celular").value;
-            let comentarios = document.getElementById("comentarios").value;
 
+        // PROCESAR PEDIDO
+        document.getElementById("btnProcesar").addEventListener("click", async function () {
+
+            let cliente = document.getElementById("cliente").value.trim();
+            let telefono = document.getElementById("telefono").value.trim();
+            let direccion = document.getElementById("direccion").value.trim();
+            let cantidad = parseInt(document.getElementById("cantidad").value);
             let comprobante = document.getElementById("comprobante").files[0];
 
-            if (!nombre || !cantidad || !celular || !comprobante) {
-                alert("Complete todos los campos obligatorios.");
+            let producto = document.getElementById("productoNombre").value;
+            let precio = parseFloat(document.getElementById("productoPrecio").value);
+
+            // Validación del mínimo
+            if (cantidad < minimoActual) {
+                alert(`⚠️ El mínimo permitido para este producto es ${minimoActual}.`);
                 return;
             }
 
-            // Validación provincias
-            if (ciudad.toLowerCase() !== "lima" && cantidad < 10) {
-                alert("Para envíos a provincias el pedido mínimo es de 10 a 15 cajas. (O mínimo 5 si aplica)");
+            if (!comprobante) {
+                alert("Debe subir el comprobante del Yape.");
                 return;
             }
+
+            // Cálculos
+            let total = cantidad * precio;
+            let pago50 = total / 2;
 
             // Convertir comprobante a base64
-            const base64 = await toBase64(comprobante);
+            let base64Comprobante = await new Promise((resolve) => {
+                let reader = new FileReader();
+                reader.onload = () => resolve(reader.result);
+                reader.readAsDataURL(comprobante);
+            });
 
-            // Generar PDF
+            // ==============================
+            // CREAR PDF
+            // ==============================
+
             const { jsPDF } = window.jspdf;
-            const pdf = new jsPDF();
+            const pdf = new jsPDF("p", "mm", "a4");
 
+            // Paleta de colores rosa suave
+            const rosaFuerte = [255, 133, 160];
+            const rosaSuave = [255, 230, 235];
+            const gris = [80, 80, 80];
+
+            // ==============================
+            // BANNER SUPERIOR
+            // ==============================
+            pdf.setFillColor(rosaSuave[0], rosaSuave[1], rosaSuave[2]);
+            pdf.rect(0, 0, 210, 30, "F");
+
+            pdf.setFontSize(20);
+            pdf.setTextColor(rosaFuerte[0], rosaFuerte[1], rosaFuerte[2]);
+            pdf.setFont("helvetica", "bold");
+            pdf.text("MINI GRANOLA CUPS", 10, 20);
+
+            pdf.setFontSize(12);
+            pdf.setTextColor(gris[0], gris[1], gris[2]);
+            pdf.text(`Boleta N° ${Math.floor(Math.random() * 90000) + 10000}`, 150, 20);
+
+            // ==============================
+            // INFORMACIÓN DEL CLIENTE
+            // ==============================
+            pdf.setFontSize(13);
+            pdf.setTextColor(rosaFuerte[0], rosaFuerte[1], rosaFuerte[2]);
+            pdf.setFont("helvetica", "bold");
+            pdf.text("INFORMACIÓN DEL CLIENTE", 10, 45);
+
+            pdf.setDrawColor(rosaFuerte[0], rosaFuerte[1], rosaFuerte[2]);
+            pdf.line(10, 48, 200, 48);
+
+            pdf.setFont("helvetica", "normal");
+            pdf.setTextColor(0, 0, 0);
+
+            pdf.text(`Nombre: ${cliente.toUpperCase()}`, 10, 60);
+            pdf.text(`Teléfono: ${telefono.toUpperCase()}`, 10, 68);
+            pdf.text(`Dirección: ${direccion.toUpperCase()}`, 10, 76);
+            pdf.text(`Fecha: ${new Date().toLocaleDateString().toUpperCase()}`, 10, 84);
+
+            // ==============================
+            // TABLA DETALLE
+            // ==============================
+            pdf.setFont("helvetica", "bold");
+            pdf.setTextColor(rosaFuerte[0], rosaFuerte[1], rosaFuerte[2]);
+            pdf.text("DETALLE DEL PEDIDO", 10, 98);
+
+            pdf.setDrawColor(rosaFuerte[0], rosaFuerte[1], rosaFuerte[2]);
+            pdf.line(10, 101, 200, 101);
+
+            pdf.setFont("helvetica", "bold");
+            pdf.setFontSize(12);
+            pdf.setTextColor(0, 0, 0);
+
+            pdf.text("DESCRIPCIÓN", 10, 115);
+            pdf.text("CANTIDAD", 110, 115);
+            pdf.text("PRECIO", 160, 115);
+
+            let startY = 120;
+            pdf.setDrawColor(150, 150, 150);
+            pdf.setLineWidth(0.2);
+            pdf.line(10, startY, 200, startY);
+            startY += 12;
+
+            // ------------------------------
+            // DESCRIPCIÓN MÁS PEQUEÑA 👇
+            // ------------------------------
+            pdf.setFont("helvetica", "normal");
+            pdf.setFontSize(10); // 👈 más pequeño
+            pdf.text(producto.toUpperCase(), 10, startY);
+
+            pdf.setFontSize(12);
+            pdf.text(String(cantidad), 115, startY);
+            pdf.text(`S/ ${precio.toFixed(2)}`, 160, startY);
+
+            // ==============================
+            // RESUMEN DE PAGO
+            // ==============================
+            pdf.setFillColor(rosaSuave[0], rosaSuave[1], rosaSuave[2]);
+            pdf.rect(0, 180, 210, 60, "F");
+
+            pdf.setFont("helvetica", "bold");
+            pdf.setFontSize(16);
+            pdf.setTextColor(rosaFuerte[0], rosaFuerte[1], rosaFuerte[2]);
+            pdf.text("RESUMEN DE PAGO", 10, 195);
+
+            pdf.setFont("helvetica", "normal");
             pdf.setFontSize(14);
-            pdf.text("Detalle del Pedido", 10, 10);
+            pdf.setTextColor(0, 0, 0);
 
-            pdf.setFontSize(11);
-            pdf.text(`Producto: ${productoNombre}`, 10, 20);
-            pdf.text(`Cantidad: ${cantidad}`, 10, 30);
-            pdf.text(`Precio: S/ ${productoPrecio}`, 10, 40);
-            pdf.text(`Nombre: ${nombre}`, 10, 50);
-            pdf.text(`Celular: ${celular}`, 10, 60);
-            pdf.text(`Ubicación/Ciudad: ${gps || ciudad}`, 10, 70);
-            pdf.text(`Comentarios: ${comentarios}`, 10, 80);
+            pdf.text(`Total a pagar: S/ ${total.toFixed(2)}`, 10, 215);
+            pdf.text(`Pago inicial (50%): S/ ${pago50.toFixed(2)}`, 10, 225);
 
-            pdf.text("Comprobante de pago:", 10, 95);
-            pdf.addImage(base64, "JPEG", 10, 100, 100, 100);
+            // ==============================
+            // IMAGEN DEL COMPROBANTE
+            // ==============================
+            pdf.setFont("helvetica", "bold");
+            pdf.setFontSize(13);
+            pdf.setTextColor(rosaFuerte[0], rosaFuerte[1], rosaFuerte[2]);
+            pdf.text("COMPROBANTE YAPE", 130, 190);
 
-            pdf.save(`Pedido-${nombre}.pdf`);
+            // Imagen ajustada
+            pdf.addImage(base64Comprobante, "PNG", 135, 198, 55, 55);
 
-            // Enviar WhatsApp
-            let mensaje = `Hola! Quiero confirmar mi pedido:
-Producto: ${productoNombre}
-Cantidad: ${cantidad}
-Precio: S/ ${productoPrecio}
-Nombre: ${nombre}
-Celular: ${celular}
-Mi ubicación: ${gps || ciudad}
-Comentarios: ${comentarios}
-Adjunto el comprobante de pago del 50%.`;
+            // ==============================
+            // PIE DE PÁGINA
+            // ==============================
+            pdf.setFontSize(10);
+            pdf.setFont("helvetica", "italic");
+            pdf.setTextColor(120, 120, 120);
+            pdf.text("Mini Granola Cups © 2025 - Con amor para ti 💗", 60, 290);
 
-            window.open(`https://wa.me/51934820460?text=${encodeURIComponent(mensaje)}`, "_blank");
+            // GUARDAR PDF
+            pdf.save(`BOLETA-${cliente.toUpperCase()}.pdf`);
+
+            // MOSTRAR MODAL WHATSAPP
+            mostrarModalWhatsapp();
+
 
         });
+    </script>
 
-        // Función convertir a Base64
-        function toBase64(file) {
-            return new Promise((resolve, reject) => {
-                const reader = new FileReader();
-                reader.readAsDataURL(file);
-                reader.onload = () => resolve(reader.result);
-                reader.onerror = reject;
-            });
+
+
+    <!-- MODAL DESPUÉS DE DESCARGAR -->
+    <div class="modal fade" id="whatsappModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content shadow-lg border-0" style="border-radius: 18px;">
+
+                <!-- Header -->
+                <div class="modal-header bg-success text-white" style="border-radius: 18px 18px 0 0;">
+                    <h5 class="modal-title fw-bold">
+                        <i class="bi bi-whatsapp"></i> Finalizar Pedido
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+
+                <!-- Body -->
+                <div class="modal-body text-center p-4">
+
+                    <h4 class="fw-bold text-success">¡Pedido Generado!</h4>
+                    <p class="mt-3" style="font-size: 1.1rem;">
+                        Ahora deberás enviar el archivo descargado al siguiente número
+                        para que puedan atenderte y confirmar tu pedido.
+                    </p>
+
+                    <div class="p-3 mt-3 bg-light border rounded-3">
+                        <h5 class="fw-bold mb-1">📞 Número de atención</h5>
+                        <div class="fs-4 text-success fw-bold">+51 961401454</div>
+                    </div>
+
+                    <p class="mt-3 text-muted">Presiona el botón de abajo para abrir WhatsApp.</p>
+
+                    <!-- BOTÓN DE WHATSAPP -->
+                    <a id="btnEnviarWhatsApp" href="#" target="_blank" class="btn btn-success btn-lg w-100 fw-bold"
+                        style="border-radius: 10px;">
+                        <i class="bi bi-whatsapp"></i> Enviar por WhatsApp
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function mostrarModalWhatsapp(nombreArchivo) {
+            const numero = "51961401454"; // ← CAMBIA A TU NÚMERO REAL
+
+            const mensaje = encodeURIComponent(
+                "Hola, acabo de generar un pedido y aquí envío el archivo: " + nombreArchivo
+            );
+
+            // Actualiza el enlace del botón con el mensaje
+            document.getElementById("btnEnviarWhatsApp").href =
+                "https://wa.me/" + numero + "?text=" + mensaje;
+
+            // Mostrar modal
+            const modal = new bootstrap.Modal(document.getElementById('whatsappModal'));
+            modal.show();
         }
     </script>
+
+
+
+
+
+
+
+
 
 
     <!-- Start Products  -->
@@ -841,6 +1201,28 @@ Adjunto el comprobante de pago del 50%.`;
 
 
     <!-- Start Instagram Feed  -->
+
+
+    <!-- Start Instagram Feed  -->
+
+    <style>
+        .instagram-box .ins-inner-box img {
+            width: 100%;
+            height: 250px;
+            /* Ajusta el tamaño que quieras */
+            object-fit: cover;
+            border: 3px solid #e6e6e6;
+            /* borde leve */
+            border-radius: 10px;
+            /* esquinas suaves */
+        }
+
+        .instagram-box .ins-inner-box {
+            overflow: hidden;
+            border-radius: 10px;
+        }
+    </style>
+
     <div class="instagram-box">
         <div class="main-instagram owl-carousel owl-theme">
             <div class="item">
@@ -851,6 +1233,7 @@ Adjunto el comprobante de pago del 50%.`;
                     </div>
                 </div>
             </div>
+
             <div class="item">
                 <div class="ins-inner-box">
                     <img src="images/instagram-img-02.jpg" alt="" />
@@ -859,6 +1242,7 @@ Adjunto el comprobante de pago del 50%.`;
                     </div>
                 </div>
             </div>
+
             <div class="item">
                 <div class="ins-inner-box">
                     <img src="images/instagram-img-03.jpg" alt="" />
@@ -867,6 +1251,7 @@ Adjunto el comprobante de pago del 50%.`;
                     </div>
                 </div>
             </div>
+
             <div class="item">
                 <div class="ins-inner-box">
                     <img src="images/instagram-img-04.jpg" alt="" />
@@ -875,6 +1260,7 @@ Adjunto el comprobante de pago del 50%.`;
                     </div>
                 </div>
             </div>
+
             <div class="item">
                 <div class="ins-inner-box">
                     <img src="images/instagram-img-05.jpg" alt="" />
@@ -883,6 +1269,7 @@ Adjunto el comprobante de pago del 50%.`;
                     </div>
                 </div>
             </div>
+
             <div class="item">
                 <div class="ins-inner-box">
                     <img src="images/instagram-img-06.jpg" alt="" />
@@ -891,6 +1278,7 @@ Adjunto el comprobante de pago del 50%.`;
                     </div>
                 </div>
             </div>
+
             <div class="item">
                 <div class="ins-inner-box">
                     <img src="images/instagram-img-07.jpg" alt="" />
@@ -899,6 +1287,7 @@ Adjunto el comprobante de pago del 50%.`;
                     </div>
                 </div>
             </div>
+
             <div class="item">
                 <div class="ins-inner-box">
                     <img src="images/instagram-img-08.jpg" alt="" />
@@ -907,6 +1296,7 @@ Adjunto el comprobante de pago del 50%.`;
                     </div>
                 </div>
             </div>
+
             <div class="item">
                 <div class="ins-inner-box">
                     <img src="images/instagram-img-09.jpg" alt="" />
@@ -915,6 +1305,7 @@ Adjunto el comprobante de pago del 50%.`;
                     </div>
                 </div>
             </div>
+
             <div class="item">
                 <div class="ins-inner-box">
                     <img src="images/instagram-img-05.jpg" alt="" />
@@ -925,9 +1316,13 @@ Adjunto el comprobante de pago del 50%.`;
             </div>
         </div>
     </div>
+
+    <!-- End Instagram Feed  -->
+
     <!-- End Instagram Feed  -->
 
 
+    <!-- Start Footer  -->
     <!-- Start Footer  -->
     <footer class="bg-dark text-light pt-5">
         <div class="footer-main">
@@ -941,8 +1336,8 @@ Adjunto el comprobante de pago del 50%.`;
                         <div class="footer-top-box">
                             <h3 class="fw-bold text-uppercase">Horario de Atención</h3>
                             <ul class="list-time mt-3">
-                                <li>Lunes a Viernes: 08:00 am - 06:00 pm</li>
-                                <li>Sábado: 09:00 am - 08:00 pm</li>
+                                <li>Lunes a Viernes: 08:00 am - 05:00 pm</li>
+                                <li>Sábado: 10:00 am - 08:00 pm</li>
                                 <li>Domingo: <span class="text-warning">Cerrado</span></li>
                             </ul>
                         </div>
@@ -952,8 +1347,7 @@ Adjunto el comprobante de pago del 50%.`;
                     <div class="col-lg-4 col-md-6">
                         <div class="footer-top-box">
                             <h3 class="fw-bold text-uppercase">Boletín Informativo</h3>
-                            <p class="mt-2">Recibe promociones, combos y novedades de Mini Granola Cups y Cositas Ricas.
-                            </p>
+                            <p class="mt-2">Recibe ofertas y novedades en tu correo.</p>
                             <form class="newsletter-box mt-3">
                                 <div class="form-group position-relative">
                                     <input type="email" class="form-control rounded-pill"
@@ -971,12 +1365,20 @@ Adjunto el comprobante de pago del 50%.`;
                     <div class="col-lg-4 col-md-12">
                         <div class="footer-top-box">
                             <h3 class="fw-bold text-uppercase">Redes Sociales</h3>
-                            <p class="mt-2">Síguenos para enterarte de lanzamientos y promociones de nuestros mini
-                                postres.</p>
+                            <p class="mt-2">Síguenos y mantente al día.</p>
                             <ul class="d-flex gap-3 mt-3 list-unstyled">
-                                <li><a href="#" class="text-light fs-4"><i class="fab fa-facebook"></i></a></li>
-                                <li><a href="#" class="text-light fs-4"><i class="fab fa-instagram"></i></a></li>
-                                <li><a href="#" class="text-light fs-4"><i class="fab fa-whatsapp"></i></a></li>
+                                <li><a href="https://web.facebook.com/profile.php?id=61584664746484"
+                                        class="text-light fs-4"><i class="fab fa-facebook"></i></a></li>
+                                <li><a href="https://www.instagram.com/cositas_ricas_05/" class="text-light fs-4"><i
+                                            class="fab fa-instagram"></i></a></li>
+                                <li><a href="+51961401454" class="text-light fs-4"><i class="fab fa-whatsapp"></i></a>
+                                </li>
+                                <li>
+                                    <a href="https://www.tiktok.com/@cositas_ricas_05?_r=1&_t=ZS-926jp8teef9"
+                                        class="text-light fs-4">
+                                        <i class="fab fa-tiktok"></i>
+                                    </a>
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -993,9 +1395,8 @@ Adjunto el comprobante de pago del 50%.`;
                         <div class="footer-widget">
                             <h4 class="fw-bold text-uppercase">Sobre Nosotros</h4>
                             <p class="mt-3">
-                                En <strong>Cositas Ricas</strong> elaboramos mini postres y <strong>Mini Granola
-                                    Cups</strong> con ingredientes frescos y naturales.
-                                Calidad y sabor en cada bocado.
+                                Somos una tienda comprometida en ofrecer productos de calidad, con un servicio confiable
+                                y una excelente experiencia para nuestros clientes.
                             </p>
                         </div>
                     </div>
@@ -1022,19 +1423,18 @@ Adjunto el comprobante de pago del 50%.`;
                             <ul class="list-unstyled mt-3">
                                 <li>
                                     <p><i class="fas fa-map-marker-alt me-2"></i>
-                                        Dirección: Calle Repostería 456, Lima - Perú
+                                        Dirección: Av. Arequipa 828, 12116 / San Geronimo de Tunan/ Junin, Perú
                                     </p>
                                 </li>
                                 <li>
                                     <p><i class="fas fa-phone me-2"></i>
-                                        WhatsApp: <a href="https://wa.me/51934820460" class="text-light">+51 934 820
-                                            460</a>
+                                        Teléfono: <a href="tel:+51-999999999" class="text-light">+51 961401454</a>
                                     </p>
                                 </li>
                                 <li>
                                     <p><i class="fas fa-envelope me-2"></i>
-                                        Correo: <a href="mailto:contacto@cositasricas.com"
-                                            class="text-light">contacto@cositasricas.com</a>
+                                        Correo: <a href="mailto:correo@ejemplo.com"
+                                            class="text-light">cositasricas050@gmail.com</a>
                                     </p>
                                 </li>
                             </ul>
@@ -1054,6 +1454,8 @@ Adjunto el comprobante de pago del 50%.`;
         </div>
     </footer>
     <!-- End Footer  -->
+
+
 
 
     <a href="#" id="back-to-top" title="Back to top" style="display: none;">&uarr;</a>
