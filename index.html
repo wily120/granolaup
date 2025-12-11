@@ -578,7 +578,7 @@
                             <h5>S/ 7.00</h5>
 
                             <a href="#" class="btn-cart abrirPedido" data-producto="Postres Saludables (Vasitos)"
-                                data-precio="12.00">
+                                data-precio="7.00">
                                 Pedir por WhatsApp
                             </a>
                         </div>
@@ -596,7 +596,7 @@
                             <h5>S/ 45.00</h5>
 
                             <a href="#" class="btn-cart abrirPedido" data-producto="Pasteles Artesanales"
-                                data-precio="15.00">
+                                data-precio="45.00">
                                 Pedir por WhatsApp
                             </a>
                         </div>
@@ -614,7 +614,7 @@
                             <h5>S/ 3.00</h5>
 
                             <a href="#" class="btn-cart abrirPedido" data-producto="Postres Personalizados"
-                                data-precio="18.00">
+                                data-precio="3.00">
                                 Pedir por WhatsApp
                             </a>
                         </div>
@@ -632,7 +632,7 @@
                             <h5>S/ 7.00</h5>
 
                             <a href="#" class="btn-cart abrirPedido" data-producto="Cheesecakes Fríos"
-                                data-precio="14.50">
+                                data-precio="7.50">
                                 Pedir por WhatsApp
                             </a>
                         </div>
@@ -650,7 +650,7 @@
                             <h5>S/45.00</h5>
 
                             <a href="#" class="btn-cart abrirPedido" data-producto="Gelatinas 3D y Artísticas"
-                                data-precio="13.00">
+                                data-precio="15.00">
                                 Pedir por WhatsApp
                             </a>
                         </div>
@@ -735,9 +735,6 @@
         </div>
     </div>
 
-
-
-
     <!-- MODAL DE PEDIDO -->
     <style>
         /* Contenedor principal */
@@ -811,25 +808,20 @@
     </style>
 
     <!-- MODAL DE PEDIDO -->
+    <!-- ===== MODAL CARRITO / PEDIDO (OPCIÓN C) ===== -->
     <div class="modal fade" id="modalPedido" tabindex="-1">
         <div class="modal-dialog modal-lg modal-dialog-centered">
             <div class="modal-content pedido-modal">
 
                 <div class="modal-header modal-header-custom">
-                    <h5 class="modal-title fw-bold">🧾 Procesar Pedido</h5>
-                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                    <h5 class="modal-title fw-bold">🧾 Tu Pedido</h5>
+                    <button type="button" class="btn-close btn-close-white" id="btnCloseModalPedido"></button>
                 </div>
 
                 <div class="modal-body">
-
+                    <!-- Info cliente -->
                     <form id="formPedido">
-
-                        <!-- Guardar datos del producto -->
-                        <input type="hidden" id="productoNombre">
-                        <input type="hidden" id="productoPrecio">
-
                         <div class="row g-3">
-
                             <div class="col-md-6">
                                 <label class="form-label fw-bold">Nombre del Cliente</label>
                                 <input type="text" id="cliente" class="form-control modal-input" required>
@@ -844,347 +836,569 @@
                                 <label class="form-label fw-bold">Dirección / Distrito</label>
                                 <input type="text" id="direccion" class="form-control modal-input" required
                                     placeholder="Ejemplo: Jr. Las Flores 123, Casa verde, Cerca al parque central, San Juan de Lurigancho">
-
                                 <small class="text-muted d-block mt-1">
-                                    📍 Por favor ingresa una dirección **completa y exacta**, incluyendo:
-                                    <br>• Nombre de la calle o avenida
-                                    <br>• Número de vivienda o referencia
-                                    <br>• Piso, bloque o número de puerta (si aplica)
-                                    <br>• Punto de referencia claro
-                                    <br>• Distrito correspondiente
-                                    <br><strong>Esto nos ayuda a entregar tu pedido lo más rápido posible. 💗</strong>
+                                    📍 Por favor ingresa una dirección <strong>completa y exacta</strong> (calle,
+                                    número, referencia, distrito).
                                 </small>
                             </div>
 
-
-                            <div class="col-md-6">
-                                <label class="form-label fw-bold">Cantidad (mínimo 10)</label>
-                                <input type="number" id="cantidad" class="form-control modal-input" required min="10">
+                            <!-- Agregar más productos desde selector -->
+                            <div class="col-md-8">
+                                <label class="form-label fw-bold">Agregar más productos</label>
+                                <select id="selectProductos" class="form-select modal-input"></select>
+                            </div>
+                            <div class="col-md-2">
+                                <label class="form-label fw-bold">Cantidad</label>
+                                <input type="number" id="selectCantidad" class="form-control modal-input" min="1"
+                                    value="1">
+                            </div>
+                            <div class="col-md-2 d-flex align-items-end">
+                                <button type="button" id="btnAgregarProducto"
+                                    class="btn btn-cart w-100">Agregar</button>
                             </div>
 
+                            <!-- Lista carrito -->
+                            <div class="col-12">
+                                <label class="form-label fw-bold">Lista de productos</label>
+                                <ul id="listaCarrito" class="list-group mb-2"></ul>
+                            </div>
+
+                            <!-- Comprobante -->
                             <div class="col-md-6">
                                 <label class="form-label fw-bold">Subir comprobante (Yape)</label>
-                                <input type="file" id="comprobante" class="form-control modal-input" accept="image/*"
-                                    required>
+                                <input type="file" id="comprobantePedido" class="form-control modal-input"
+                                    accept="image/*" required>
                             </div>
 
-                            <div class="col-md-12">
+                            <!-- Totales -->
+                            <div class="col-md-6">
                                 <div class="pago-info-box">
                                     <p>💰 <b>Total:</b> S/ <span id="totalValor">0.00</span></p>
                                     <p>🩷 <b>Pago inicial (50%):</b> S/ <span id="pago50">0.00</span></p>
+                                    <small id="avisoMinimos" class="text-muted d-block mt-1"></small>
                                 </div>
                             </div>
-
                         </div>
-
                     </form>
 
                     <div class="text-center mt-4">
-                        <img src="images/yape.webp" width="180" class="qr-yape">
+                        <img src="images/yape.webp" width="140" class="qr-yape">
                         <p class="yape-text">📌 Escanea para pagar el 50% del pedido</p>
                     </div>
-
                 </div>
 
                 <div class="modal-footer">
-                    <button class="btn btn-cancelar" data-bs-dismiss="modal">Cancelar</button>
-                    <button class="btn btn-procesar" id="btnProcesar">Procesar Pedido</button>
+                    <button class="btn btn-cancelar" id="btnCancelarPedido">Cancelar</button>
+                    <button class="btn btn-procesar" id="btnGenerarPedido">Generar Pedido (PDF)</button>
                 </div>
 
             </div>
         </div>
     </div>
 
-
-    <script>
-        let minimoActual = 1; // se actualizará según el producto
-
-        // Abrir modal desde los productos
-        document.querySelectorAll('.btn-cart').forEach(btn => {
-            btn.addEventListener('click', function () {
-                const card = this.closest('.product-card');
-
-                const nombre = card.querySelector('h4').innerText;
-                const precio = parseFloat(card.querySelector('h5').innerText.replace("S/ ", ""));
-
-                document.getElementById("productoNombre").value = nombre;
-                document.getElementById("productoPrecio").value = precio;
-
-                // ===========================
-                // REGLA DE MÍNIMOS SEGÚN PRECIO
-                // ===========================
-                if (precio < 10) {
-                    minimoActual = 3; // mínimo 3–4 → usamos 3
-                } else if (precio >= 10 && precio <= 20) {
-                    minimoActual = 2;
-                } else {
-                    minimoActual = 1;
-                }
-
-                // Actualizamos el input HTML
-                let inputCantidad = document.getElementById("cantidad");
-                inputCantidad.min = minimoActual;
-                inputCantidad.value = minimoActual;
-
-                // Mostramos mensaje visual
-                inputCantidad.previousElementSibling.innerHTML =
-                    `Cantidad <span class="text-danger fw-bold">(mínimo ${minimoActual})</span>`;
-
-                // Reiniciar totales
-                document.getElementById("totalValor").innerText = "0.00";
-                document.getElementById("pago50").innerText = "0.00";
-
-                let modal = new bootstrap.Modal(document.getElementById("modalPedido"));
-                modal.show();
-            });
-        });
-
-
-        // Actualizar total y pago 50% en tiempo real
-        document.getElementById("cantidad").addEventListener("input", function () {
-
-            let cantidad = parseInt(this.value) || 0;
-
-            // VALIDACIÓN DEL MÍNIMO
-            if (cantidad < minimoActual) {
-                this.value = minimoActual;
-                cantidad = minimoActual;
-
-                alert(`⚠️ El mínimo para este producto es ${minimoActual}.`);
-            }
-
-            let precio = parseFloat(document.getElementById("productoPrecio").value);
-
-            let total = cantidad * precio;
-            let pago50 = total / 2;
-
-            document.getElementById("totalValor").innerText = total.toFixed(2);
-            document.getElementById("pago50").innerText = pago50.toFixed(2);
-        });
-
-
-
-        // PROCESAR PEDIDO
-        document.getElementById("btnProcesar").addEventListener("click", async function () {
-
-            let cliente = document.getElementById("cliente").value.trim();
-            let telefono = document.getElementById("telefono").value.trim();
-            let direccion = document.getElementById("direccion").value.trim();
-            let cantidad = parseInt(document.getElementById("cantidad").value);
-            let comprobante = document.getElementById("comprobante").files[0];
-
-            let producto = document.getElementById("productoNombre").value;
-            let precio = parseFloat(document.getElementById("productoPrecio").value);
-
-            // Validación del mínimo
-            if (cantidad < minimoActual) {
-                alert(`⚠️ El mínimo permitido para este producto es ${minimoActual}.`);
-                return;
-            }
-
-            if (!comprobante) {
-                alert("Debe subir el comprobante del Yape.");
-                return;
-            }
-
-            // Cálculos
-            let total = cantidad * precio;
-            let pago50 = total / 2;
-
-            // Convertir comprobante a base64
-            let base64Comprobante = await new Promise((resolve) => {
-                let reader = new FileReader();
-                reader.onload = () => resolve(reader.result);
-                reader.readAsDataURL(comprobante);
-            });
-
-            // ==============================
-            // CREAR PDF
-            // ==============================
-
-            const { jsPDF } = window.jspdf;
-            const pdf = new jsPDF("p", "mm", "a4");
-
-            // Paleta de colores rosa suave
-            const rosaFuerte = [255, 133, 160];
-            const rosaSuave = [255, 230, 235];
-            const gris = [80, 80, 80];
-
-            // ==============================
-            // BANNER SUPERIOR
-            // ==============================
-            pdf.setFillColor(rosaSuave[0], rosaSuave[1], rosaSuave[2]);
-            pdf.rect(0, 0, 210, 30, "F");
-
-            pdf.setFontSize(20);
-            pdf.setTextColor(rosaFuerte[0], rosaFuerte[1], rosaFuerte[2]);
-            pdf.setFont("helvetica", "bold");
-            pdf.text("MINI GRANOLA CUPS", 10, 20);
-
-            pdf.setFontSize(12);
-            pdf.setTextColor(gris[0], gris[1], gris[2]);
-            pdf.text(`Boleta N° ${Math.floor(Math.random() * 90000) + 10000}`, 150, 20);
-
-            // ==============================
-            // INFORMACIÓN DEL CLIENTE
-            // ==============================
-            pdf.setFontSize(13);
-            pdf.setTextColor(rosaFuerte[0], rosaFuerte[1], rosaFuerte[2]);
-            pdf.setFont("helvetica", "bold");
-            pdf.text("INFORMACIÓN DEL CLIENTE", 10, 45);
-
-            pdf.setDrawColor(rosaFuerte[0], rosaFuerte[1], rosaFuerte[2]);
-            pdf.line(10, 48, 200, 48);
-
-            pdf.setFont("helvetica", "normal");
-            pdf.setTextColor(0, 0, 0);
-
-            pdf.text(`Nombre: ${cliente.toUpperCase()}`, 10, 60);
-            pdf.text(`Teléfono: ${telefono.toUpperCase()}`, 10, 68);
-            pdf.text(`Dirección: ${direccion.toUpperCase()}`, 10, 76);
-            pdf.text(`Fecha: ${new Date().toLocaleDateString().toUpperCase()}`, 10, 84);
-
-            // ==============================
-            // TABLA DETALLE
-            // ==============================
-            pdf.setFont("helvetica", "bold");
-            pdf.setTextColor(rosaFuerte[0], rosaFuerte[1], rosaFuerte[2]);
-            pdf.text("DETALLE DEL PEDIDO", 10, 98);
-
-            pdf.setDrawColor(rosaFuerte[0], rosaFuerte[1], rosaFuerte[2]);
-            pdf.line(10, 101, 200, 101);
-
-            pdf.setFont("helvetica", "bold");
-            pdf.setFontSize(12);
-            pdf.setTextColor(0, 0, 0);
-
-            pdf.text("DESCRIPCIÓN", 10, 115);
-            pdf.text("CANTIDAD", 110, 115);
-            pdf.text("PRECIO", 160, 115);
-
-            let startY = 120;
-            pdf.setDrawColor(150, 150, 150);
-            pdf.setLineWidth(0.2);
-            pdf.line(10, startY, 200, startY);
-            startY += 12;
-
-            // ------------------------------
-            // DESCRIPCIÓN MÁS PEQUEÑA 👇
-            // ------------------------------
-            pdf.setFont("helvetica", "normal");
-            pdf.setFontSize(10); // 👈 más pequeño
-            pdf.text(producto.toUpperCase(), 10, startY);
-
-            pdf.setFontSize(12);
-            pdf.text(String(cantidad), 115, startY);
-            pdf.text(`S/ ${precio.toFixed(2)}`, 160, startY);
-
-            // ==============================
-            // RESUMEN DE PAGO
-            // ==============================
-            pdf.setFillColor(rosaSuave[0], rosaSuave[1], rosaSuave[2]);
-            pdf.rect(0, 180, 210, 60, "F");
-
-            pdf.setFont("helvetica", "bold");
-            pdf.setFontSize(16);
-            pdf.setTextColor(rosaFuerte[0], rosaFuerte[1], rosaFuerte[2]);
-            pdf.text("RESUMEN DE PAGO", 10, 195);
-
-            pdf.setFont("helvetica", "normal");
-            pdf.setFontSize(14);
-            pdf.setTextColor(0, 0, 0);
-
-            pdf.text(`Total a pagar: S/ ${total.toFixed(2)}`, 10, 215);
-            pdf.text(`Pago inicial (50%): S/ ${pago50.toFixed(2)}`, 10, 225);
-
-            // ==============================
-            // IMAGEN DEL COMPROBANTE
-            // ==============================
-            pdf.setFont("helvetica", "bold");
-            pdf.setFontSize(13);
-            pdf.setTextColor(rosaFuerte[0], rosaFuerte[1], rosaFuerte[2]);
-            pdf.text("COMPROBANTE YAPE", 130, 190);
-
-            // Imagen ajustada
-            pdf.addImage(base64Comprobante, "PNG", 135, 198, 55, 55);
-
-            // ==============================
-            // PIE DE PÁGINA
-            // ==============================
-            pdf.setFontSize(10);
-            pdf.setFont("helvetica", "italic");
-            pdf.setTextColor(120, 120, 120);
-            pdf.text("Mini Granola Cups © 2025 - Con amor para ti 💗", 60, 290);
-
-            // GUARDAR PDF
-            pdf.save(`BOLETA-${cliente.toUpperCase()}.pdf`);
-
-            // MOSTRAR MODAL WHATSAPP
-            mostrarModalWhatsapp();
-
-
-        });
-    </script>
-
-
-
-    <!-- MODAL DESPUÉS DE DESCARGAR -->
+    <!-- ===== MODAL WHATSAPP (MUESTRA NOMBRE DE ARCHIVO) ===== -->
     <div class="modal fade" id="whatsappModal" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content shadow-lg border-0" style="border-radius: 18px;">
-
-                <!-- Header -->
                 <div class="modal-header bg-success text-white" style="border-radius: 18px 18px 0 0;">
-                    <h5 class="modal-title fw-bold">
-                        <i class="bi bi-whatsapp"></i> Finalizar Pedido
-                    </h5>
+                    <h5 class="modal-title fw-bold"><i class="bi bi-whatsapp"></i> Pedido Generado</h5>
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
                 </div>
 
-                <!-- Body -->
                 <div class="modal-body text-center p-4">
+                    <h4 class="fw-bold text-success">¡Tu boleta se descargó correctamente! 🎉</h4>
+                    <div class="alert alert-info fw-bold mt-3" id="archivoGenerado">
+                        📄 Archivo generado: <span id="nombreArchivoPDF"></span>
+                    </div>
 
-                    <h4 class="fw-bold text-success">¡Pedido Generado!</h4>
-                    <p class="mt-3" style="font-size: 1.1rem;">
-                        Ahora deberás enviar el archivo descargado al siguiente número
-                        para que puedan atenderte y confirmar tu pedido.
-                    </p>
+                    <div class="alert alert-warning text-start mt-3" style="font-size: .95rem;">
+                        <strong>📌 Nota:</strong><br>En celulares: App "Archivos" → "Descargas".
+                    </div>
 
                     <div class="p-3 mt-3 bg-light border rounded-3">
                         <h5 class="fw-bold mb-1">📞 Número de atención</h5>
                         <div class="fs-4 text-success fw-bold">+51 961401454</div>
                     </div>
 
-                    <p class="mt-3 text-muted">Presiona el botón de abajo para abrir WhatsApp.</p>
+                    <p class="mt-3 text-muted">Presiona el botón para abrir WhatsApp y adjunta la boleta descargada.</p>
+
+                    <a id="btnEnviarWhatsApp" href="#" target="_blank" class="btn btn-success btn-lg w-100 fw-bold"
+                        style="border-radius: 10px;">
+                        <i class="bi bi-whatsapp"></i> Abrir WhatsApp
+                    </a>
+                    <button onclick="mostrarInfoArchivo()" class="btn btn-outline-secondary btn-sm mt-3 w-100">¿Dónde se
+                        guardó mi archivo?</button>
+                    <div id="infoArchivo" class="mt-3 text-muted" style="display:none;">
+                        ⭐ En Android: App “Archivos” → “Descargas” o “Mis archivos” → “Descargas” <br>
+                        ⭐ En iPhone: App “Archivos” → “Descargas”
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== SCRIPT COMPLETO (LOGICA CARRITO, PDF, MODALES) ===== -->
+    <script>
+        /* ===== Variables globales ===== */
+        let carrito = []; // { nombre, precio, cantidad, minimo, total }
+        let productosCatalogo = []; // llenar con productos de la página
+        const numeroAtencion = "51961401454"; // cambiar si quieres otro número
+
+        /* ===== Instancias modales y helpers para cerrar correctamente ===== */
+        const modalPedidoEl = document.getElementById("modalPedido");
+        let modalPedido = new bootstrap.Modal(modalPedidoEl, { backdrop: true, keyboard: true });
+
+        function cerrarModalPedido() {
+            try { modalPedido.hide(); } catch (e) { }
+            document.body.classList.remove("modal-open");
+            document.querySelectorAll(".modal-backdrop").forEach(b => b.remove());
+        }
+
+        /* ===== Buscar productos en la página y poblar selector ===== */
+        function cargarCatalogoDesdeDOM() {
+            productosCatalogo = [];
+            document.querySelectorAll('.product-card').forEach(card => {
+                const nombre = (card.querySelector('h4')?.innerText || "").trim();
+                // preferir data-precio si existe; si no, leer h5
+                const accionBtn = card.querySelector('.btn-cart');
+                const dataPrecio = accionBtn?.getAttribute('data-precio');
+                let precio = dataPrecio ? parseFloat(dataPrecio) : parseFloat(card.querySelector('h5')?.innerText.replace("S/", "") || 0);
+                productosCatalogo.push({ nombre, precio });
+            });
+
+            // llenar selectProductos
+            const select = document.getElementById("selectProductos");
+            select.innerHTML = "";
+            productosCatalogo.forEach((p, i) => {
+                const opt = document.createElement('option');
+                opt.value = i;
+                opt.text = `${p.nombre} — S/ ${p.precio.toFixed(2)}`;
+                select.appendChild(opt);
+            });
+        }
+
+        /* ===== Reglas de mínimo según precio ===== */
+        function minimoSegunPrecio(precio) {
+            if (precio < 10) return 3;
+            if (precio >= 10 && precio <= 20) return 2;
+            return 1;
+        }
+
+        /* ===== Añadir producto al carrito (usa reglas de minimo) ===== */
+        function addToCart(nombre, precio, cantidadRequested = 1) {
+            const minimo = minimoSegunPrecio(precio);
+            const cantidad = Math.max(minimo, Math.max(1, parseInt(cantidadRequested || 1)));
+            const total = cantidad * precio;
+            carrito.push({ nombre, precio, cantidad, minimo, total });
+            renderCarrito();
+        }
+
+        /* ===== Renderizar carrito dentro del modal ===== */
+        function renderCarrito() {
+            const lista = document.getElementById("listaCarrito");
+            lista.innerHTML = "";
+            carrito.forEach((item, idx) => {
+                const li = document.createElement('li');
+                li.className = "list-group-item d-flex align-items-center justify-content-between";
+                li.innerHTML = `
+      <div style="max-width:65%;">
+        <div class="fw-bold" style="font-size:.98rem">${item.nombre}</div>
+        <div class="text-muted small">S/ ${item.precio.toFixed(2)} · Mín ${item.minimo}</div>
+      </div>
+      <div class="text-end" style="min-width:150px;">
+        <div class="input-group input-group-sm mb-1" style="justify-content:flex-end; width:140px;">
+          <button class="btn btn-outline-secondary btn-sm" data-idx="${idx}" data-action="minus">−</button>
+          <input type="number" min="${item.minimo}" value="${item.cantidad}" data-idx="${idx}" class="form-control form-control-sm qty-input" style="width:60px; text-align:center;">
+          <button class="btn btn-outline-secondary btn-sm" data-idx="${idx}" data-action="plus">+</button>
+        </div>
+        <div><strong>S/ ${item.total.toFixed(2)}</strong></div>
+        <div><button class="btn btn-link btn-sm text-danger" data-idx="${idx}" data-action="remove">Eliminar</button></div>
+      </div>
+    `;
+                lista.appendChild(li);
+            });
+
+            // attach events for qty and buttons
+            document.querySelectorAll('[data-action="minus"]').forEach(b => b.addEventListener('click', e => {
+                const idx = Number(e.currentTarget.getAttribute('data-idx'));
+                changeQty(idx, carrito[idx].cantidad - 1);
+            }));
+            document.querySelectorAll('[data-action="plus"]').forEach(b => b.addEventListener('click', e => {
+                const idx = Number(e.currentTarget.getAttribute('data-idx'));
+                changeQty(idx, carrito[idx].cantidad + 1);
+            }));
+            document.querySelectorAll('[data-action="remove"]').forEach(b => b.addEventListener('click', e => {
+                const idx = Number(e.currentTarget.getAttribute('data-idx'));
+                carrito.splice(idx, 1);
+                renderCarrito();
+            }));
+            document.querySelectorAll('.qty-input').forEach(inp => {
+                inp.addEventListener('change', e => {
+                    const idx = Number(e.target.getAttribute('data-idx'));
+                    let v = parseInt(e.target.value) || carrito[idx].minimo;
+                    changeQty(idx, v);
+                });
+            });
+
+            actualizarTotales();
+        }
+
+        /* ===== Cambiar cantidad (respetando mínimo) ===== */
+        function changeQty(idx, nueva) {
+            if (!carrito[idx]) return;
+            if (nueva < carrito[idx].minimo) {
+                alert(`⚠️ El mínimo para este producto es ${carrito[idx].minimo}.`);
+                nueva = carrito[idx].minimo;
+            }
+            carrito[idx].cantidad = nueva;
+            carrito[idx].total = nueva * carrito[idx].precio;
+            renderCarrito();
+        }
+
+        /* ===== actualizar totales (muestra en el modal) ===== */
+        function actualizarTotales() {
+            const totalGeneral = carrito.reduce((s, p) => s + p.total, 0);
+            const pago50 = totalGeneral / 2;
+            document.getElementById("totalValor").innerText = totalGeneral.toFixed(2);
+            document.getElementById("pago50").innerText = pago50.toFixed(2);
+
+            // aviso de minimos (opcional): lista de mínimos únicos
+            const mins = [...new Set(carrito.map(c => c.minimo))].sort();
+            if (mins.length) {
+                document.getElementById("avisoMinimos").innerText = `Mínimos aplicados en el pedido: ${mins.join(', ')} unidades (según precio).`;
+            } else {
+                document.getElementById("avisoMinimos").innerText = "";
+            }
+        }
+
+        /* ===== Cuando el usuario clickea en las tarjetas (añadir rápido) ===== */
+        document.querySelectorAll('.btn-cart').forEach(btn => {
+            btn.addEventListener('click', function (e) {
+                e.preventDefault();
+                const nombre = this.getAttribute('data-producto') || (this.closest('.product-card').querySelector('h4')?.innerText || '').trim();
+                const precioAttr = this.getAttribute('data-precio');
+                const precio = precioAttr ? parseFloat(precioAttr) : parseFloat(this.closest('.product-card').querySelector('h5')?.innerText.replace("S/", "") || 0);
+
+                // añadir con cantidad mínima según regla
+                addToCart(nombre, precio, 0); // 0 -> la func calcula mínimo
+                // aseguramos que el selector y cantidad se actualicen
+                cargarCatalogoDesdeDOM();
+                renderCarrito();
+                modalPedido.show();
+            });
+        });
+
+        /* ===== Botón para agregar desde el selector dentro del modal ===== */
+        document.getElementById("btnAgregarProducto").addEventListener('click', function () {
+            const sel = document.getElementById("selectProductos");
+            const idx = Number(sel.value);
+            const prod = productosCatalogo[idx];
+            if (!prod) { alert("Seleccione un producto válido"); return; }
+
+            let cantidad = parseInt(document.getElementById("selectCantidad").value) || 1;
+            const minimo = minimoSegunPrecio(prod.precio);
+            if (cantidad < minimo) {
+                alert(`⚠️ El mínimo para este producto es ${minimo}.`);
+                cantidad = minimo;
+            }
+
+            addToCart(prod.nombre, prod.precio, cantidad);
+        });
+
+        /* ===== Inicializar catálogo al cargar la página ===== */
+        document.addEventListener('DOMContentLoaded', function () {
+            cargarCatalogoDesdeDOM();
+        });
+
+        /* ===== Cancelar / Cerrar modal (botón cancelar) ===== */
+        document.getElementById("btnCancelarPedido").addEventListener('click', function () {
+            carrito = []; // opcional: vaciar carrito si cancelan
+            renderCarrito();
+            cerrarModalPedido();
+        });
+
+        /* ===== Mostrar info archivo (modal Whatsapp) ===== */
+        function mostrarInfoArchivo() {
+            document.getElementById("infoArchivo").style.display = "block";
+        }
+
+        /* ===== Mostrar modal Whatsapp con nombre de archivo ===== */
+        function mostrarModalWhatsapp(nombreArchivo) {
+            document.getElementById("nombreArchivoPDF").textContent = nombreArchivo;
+            const mensaje = encodeURIComponent("Hola, acabo de generar mi pedido. Adjunto la boleta: " + nombreArchivo);
+            document.getElementById("btnEnviarWhatsApp").href = "https://wa.me/" + numeroAtencion + "?text=" + mensaje;
+
+            const m = new bootstrap.Modal(document.getElementById('whatsappModal'));
+            m.show();
+        }
+
+        /* ===== Generar PDF con todos los productos del carrito ===== */
+        document.getElementById("btnGenerarPedido").addEventListener('click', async function () {
+
+            if (carrito.length === 0) {
+                alert("Agrega al menos 1 producto al pedido.");
+                return;
+            }
+
+            const cliente = document.getElementById("cliente").value.trim();
+            const telefono = document.getElementById("telefono").value.trim();
+            const direccion = document.getElementById("direccion").value.trim();
+            const comprobanteFile = document.getElementById("comprobantePedido").files[0];
+
+            if (!cliente || !telefono || !direccion) {
+                alert("Completa los datos del cliente (nombre, teléfono, dirección).");
+                return;
+            }
+            if (!comprobanteFile) {
+                alert("Sube el comprobante del Yape antes de generar.");
+                return;
+            }
+
+            // convertir comprobante a base64
+            const base64Comprobante = await new Promise(resolve => {
+                const reader = new FileReader();
+                reader.onload = () => resolve(reader.result);
+                reader.readAsDataURL(comprobanteFile);
+            });
+
+            const { jsPDF } = window.jspdf;
+            const pdf = new jsPDF("p", "mm", "a4");
+
+            // COLORES
+            const rosaFuerte = [255, 90, 140];
+            const rosaSuave = [255, 230, 240];
+            const negro = [30, 30, 30];
+            const gris = [120, 120, 120];
+
+            /* ===========================
+                  ENCABEZADO
+               ===========================*/
+            pdf.setFillColor(...rosaSuave);
+            pdf.rect(0, 0, 210, 28, "F");
+
+            pdf.setFont("helvetica", "bold");
+            pdf.setFontSize(22);
+            pdf.setTextColor(...rosaFuerte);
+            pdf.text("MINI GRANOLA CUPS", 10, 18);
+
+            pdf.setFontSize(12);
+            pdf.setFont("helvetica", "normal");
+            pdf.setTextColor(...negro);
+            pdf.text(`Boleta N° ${Math.floor(Math.random() * 90000) + 10000}`, 150, 18);
+
+            /* ===========================
+                  DATOS DEL CLIENTE
+               ===========================*/
+            pdf.setDrawColor(...rosaFuerte);
+            pdf.setLineWidth(0.5);
+            pdf.rect(10, 35, 190, 30); // cuadro cliente
+
+            pdf.setFontSize(13);
+            pdf.setFont("helvetica", "bold");
+            pdf.text("DATOS DEL CLIENTE", 15, 42);
+
+            pdf.setFont("helvetica", "normal");
+            pdf.setTextColor(...negro);
+            pdf.setFontSize(11);
+
+            pdf.text(`Cliente: ${cliente.toUpperCase()}`, 15, 50);
+            pdf.text(`Teléfono: ${telefono}`, 15, 57);
+            pdf.text(`Dirección: ${direccion.toUpperCase()}`, 15, 64);
+
+            pdf.text(`Fecha: ${new Date().toLocaleDateString()}`, 150, 64);
+
+            /* ===========================
+                  TABLA DE PRODUCTOS
+               ===========================*/
+            let startY = 80;
+
+            // Tabla: bordes superiores
+            pdf.setDrawColor(0, 0, 0);
+            pdf.setLineWidth(0.3);
+            pdf.rect(10, startY, 190, 10);
+
+            pdf.setFont("helvetica", "bold");
+            pdf.setTextColor(0, 0, 0);
+            pdf.text("DESCRIPCIÓN", 12, startY + 7);
+            pdf.text("CANT.", 140, startY + 7);
+            pdf.text("PRECIO", 175, startY + 7);
+
+            let y = startY + 18;
+
+            pdf.setFont("helvetica", "normal");
+
+            carrito.forEach(item => {
+                const altoFila = 10;
+                pdf.rect(10, y - 7, 190, altoFila);
+
+                const lines = pdf.splitTextToSize(item.nombre.toUpperCase(), 110);
+                pdf.text(lines, 12, y);
+
+                pdf.text(String(item.cantidad), 142, y);
+                pdf.text(`S/ ${item.total.toFixed(2)}`, 175, y);
+
+                y += altoFila;
+            });
+
+            /* ===========================
+                  TOTAL Y 50% ADELANTO
+               ===========================*/
+            const totalGeneral = carrito.reduce((s, p) => s + p.total, 0);
+            const pago50 = totalGeneral / 2;
+
+            pdf.setFillColor(...rosaSuave);
+            pdf.rect(10, y + 5, 190, 40, "F");
+
+            pdf.setFont("helvetica", "bold");
+            pdf.setFontSize(14);
+            pdf.setTextColor(...rosaFuerte);
+            pdf.text("RESUMEN DE PAGO", 15, y + 17);
+
+            pdf.setFont("helvetica", "normal");
+            pdf.setFontSize(12);
+            pdf.setTextColor(...negro);
+
+            pdf.text(`Total a pagar: S/ ${totalGeneral.toFixed(2)}`, 15, y + 30);
+            pdf.text(`Pago inicial (50%): S/ ${pago50.toFixed(2)}`, 15, y + 40);
+
+            // comprobante a la derecha
+            pdf.addImage(base64Comprobante, "PNG", 135, y + 8, 60, 60);
+
+            /* ===========================
+                          PIE
+               ===========================*/
+            pdf.setFontSize(10);
+            pdf.setTextColor(...gris);
+            pdf.setFont("helvetica", "italic");
+            pdf.text("Mini Granola Cups © 2025 - Gracias por tu compra ", 50, 290);
+
+            // guardar
+            const nombreArchivo = `BOLETA-${cliente.toUpperCase().replace(/ /g, '_')}.pdf`;
+            pdf.save(nombreArchivo);
+
+            cerrarModalPedido();
+            mostrarModalWhatsapp(nombreArchivo);
+
+            carrito = [];
+            renderCarrito();
+        });
+
+    </script>
+
+
+
+
+    <!-- MODAL DESPUÉS DE DESCARGAR -->
+    <!-- MODAL DESPUÉS DE DESCARGAR -->
+    <div class="modal fade" id="whatsappModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content shadow-lg border-0"
+                style="border-radius: 18px; max-height: 90vh; overflow-y: auto;">
+
+                <!-- Header -->
+                <div class="modal-header bg-success text-white" style="border-radius: 18px 18px 0 0;">
+                    <h5 class="modal-title fw-bold">
+                        <i class="bi bi-whatsapp"></i> Pedido Generado
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" id="btnCerrarModal"></button>
+                </div>
+
+                <!-- Body -->
+                <div class="modal-body text-center p-4">
+
+                    <h4 class="fw-bold text-success">¡Tu boleta se descargó correctamente! 🎉</h4>
+
+                    <p class="mt-3" style="font-size: 1.05rem;">
+                        La <strong>boleta se descargó correctamente</strong> en tu dispositivo.<br>
+                        Ahora deberás <strong>adjuntar ese archivo por WhatsApp</strong> para que tu pedido sea
+                        procesado.
+                    </p>
+
+                    <!-- MOSTRAR NOMBRE REAL DEL ARCHIVO -->
+                    <div id="archivoGenerado" class="alert alert-info fw-bold mt-3" style="font-size: 1rem;">
+                        📄 Archivo generado: <span id="nombreArchivoPDF"></span>
+                    </div>
+
+                    <!-- Aviso importante -->
+                    <div class="alert alert-success mt-3 text-start" style="font-size: .95rem;">
+                        📌 <strong>Importante:</strong><br>
+                        Tu pedido solo será atendido después de que <strong>envíes la boleta por WhatsApp</strong>.
+                    </div>
+
+                    <!-- Dónde se guardó -->
+                    <div class="alert alert-warning text-start mt-3" style="font-size: .95rem;">
+                        <strong>📁 ¿Dónde se guardó mi archivo?</strong><br>
+                        ⭐ Android: “Archivos” → “Descargas”<br>
+                        ⭐ Samsung: “Mis archivos” → “Descargas”<br>
+                        ⭐ iPhone: App “Archivos” → “Descargas”
+                    </div>
+
+                    <!-- Número de atención -->
+                    <div class="p-3 mt-3 bg-light border rounded-3">
+                        <h5 class="fw-bold mb-1">📞 Número de atención</h5>
+                        <div class="fs-4 text-success fw-bold">+51 961401454</div>
+                    </div>
+
+                    <p class="mt-3 text-muted">Presiona el botón para abrir WhatsApp y adjunta la boleta descargada.</p>
 
                     <!-- BOTÓN DE WHATSAPP -->
                     <a id="btnEnviarWhatsApp" href="#" target="_blank" class="btn btn-success btn-lg w-100 fw-bold"
                         style="border-radius: 10px;">
-                        <i class="bi bi-whatsapp"></i> Enviar por WhatsApp
+                        <i class="bi bi-whatsapp"></i> Abrir WhatsApp
                     </a>
-                </div>
 
+                </div>
             </div>
         </div>
     </div>
 
     <script>
+        let modalInstance = null;
+
         function mostrarModalWhatsapp(nombreArchivo) {
-            const numero = "51961401454"; // ← CAMBIA A TU NÚMERO REAL
+
+            // Mostrar nombre real del archivo en el modal
+            document.getElementById("nombreArchivoPDF").textContent = nombreArchivo;
+
+            const numero = "51961401454";
 
             const mensaje = encodeURIComponent(
-                "Hola, acabo de generar un pedido y aquí envío el archivo: " + nombreArchivo
+                "Hola, acabo de generar mi pedido y adjunto mi boleta: " + nombreArchivo
             );
 
-            // Actualiza el enlace del botón con el mensaje
+            // Enlace WhatsApp
             document.getElementById("btnEnviarWhatsApp").href =
                 "https://wa.me/" + numero + "?text=" + mensaje;
 
+            // Crear instancia del modal
+            modalInstance = new bootstrap.Modal(document.getElementById('whatsappModal'));
+
             // Mostrar modal
-            const modal = new bootstrap.Modal(document.getElementById('whatsappModal'));
-            modal.show();
+            modalInstance.show();
+        }
+
+        // 🔴 CERRAR AUTOMÁTICAMENTE AL ENVIAR POR WHATSAPP
+        document.getElementById("btnEnviarWhatsApp").addEventListener("click", function () {
+            alertaCierreModal();
+            setTimeout(() => {
+                if (modalInstance) modalInstance.hide();
+            }, 600);
+        });
+
+        // 🔴 CERRAR AL HACER CLICK EN LA "X" PERO PRIMERO AVISA
+        document.getElementById("btnCerrarModal").addEventListener("click", function () {
+            alertaCierreModal();
+            setTimeout(() => {
+                if (modalInstance) modalInstance.hide();
+            }, 1000);
+        });
+
+        // 🟡 AVISO ANTES DE CERRAR
+        function alertaCierreModal() {
+            alert("Recuerda enviar la boleta por WhatsApp para que tu pedido sea procesado correctamente.");
         }
     </script>
+
 
 
 
